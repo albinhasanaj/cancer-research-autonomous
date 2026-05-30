@@ -24,7 +24,11 @@ through computation and reasoning — never through physical experiment.
 
 ## Tractable first targets
 
-Concrete, single-iteration-friendly starting points (all purely computational):
+Concrete, single-iteration-friendly starting points (all purely computational).
+**These are warm-ups** — they re-derive established theory to build trust in the
+machinery. They are not the goal. Once the apparatus is trusted, steer toward the
+frontier: questions the literature does not already answer (see
+`.github/skills/research-strategy` and triage every item before computing).
 
 1. **Multi-hit / Armitage–Doll multistage model** — survey and restate the
    classic multistage theory of carcinogenesis from primary literature.

@@ -99,4 +99,11 @@ _(none yet — open hypotheses under review will be linked here)_
 
 ## System changes
 
-_(none yet — log any agent self-extension of tools/ or structure here)_
+- 2026-05-30 — Adopted a **triage-first research strategy**: every iteration now
+  checks the frontier (native web search/fetch + PubMed, provider research modes
+  when warranted) and classifies ANSWERED / EXTENDABLE / OPEN before computing;
+  simulation is reserved for genuinely OPEN questions. Self-extension reframed as
+  reasoned ROI investment over the agent's full capability surface (native tools,
+  budgeted OpenAI + xAI keys incl. research modes, buildable tools/workflows).
+  See `AGENTS.md` ("Check the frontier", "Your capability surface") and the new
+  `.github/skills/research-strategy/SKILL.md`.

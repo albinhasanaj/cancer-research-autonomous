@@ -25,17 +25,34 @@ comes from disk:
    `research/findings/`. Use `memory_search` to recall related prior work.
 2. **Select ONE action.** Choose the single highest-value item from
    `open_questions.md`. Just one.
-3. **Act.** Use your native file/shell abilities to read, write and run code
-   directly. Use the genuine-capability tools — `pubmed_search`/`pubmed_fetch` to
-   ground in literature, `memory_search` to recall prior notes — and run your own
-   Python/shell to compute and simulate.
-4. **Criticise.** Run the critic pass on your claim BEFORE recording it as
-   trusted. What is claimed? What is the evidence? What would falsify it? Is it a
-   rediscovery? Verdict: KEEP / DEMOTE / REJECT.
-5. **Record.** Write a dated Obsidian note via `write_note` (with `[[wikilinks]]`),
+3. **Check the frontier (triage before you compute).** Before building or
+   simulating anything, find out whether the question is *already answered*. Use
+   your **native web search and web fetch** and `pubmed_search`/`pubmed_fetch`
+   (and, when warranted, a provider research mode — see *Your capability
+   surface*). Classify the item:
+   - **ANSWERED** — the literature already settles it with consensus. Record the
+     answer with citations and move on. Do **not** re-simulate to rediscover it.
+   - **EXTENDABLE** — partially answered; there is a cheap, specific delta you can
+     add (a verification, a parameter, an edge case). Do only that minimal delta.
+   - **OPEN** — no clear answer found after a genuine search. *This* is where
+     computation earns its cost: now design the simulation/model/analysis.
+   Compute is the **last resort to settle what the literature cannot** — not your
+   first move. Record what you searched so the next iteration sees it.
+4. **Act.** Use your native file/shell abilities to read, write and run code
+   directly. For OPEN questions, run your own Python/shell to compute and
+   simulate; for ANSWERED/EXTENDABLE, prefer synthesis over fresh compute. Reach
+   for the right instrument from *Your capability surface* — including a provider
+   research mode or a small tool/workflow you build when the ROI justifies it.
+5. **Criticise.** Run the critic pass on your claim BEFORE recording it as
+   trusted. What is claimed? What is the evidence? What would falsify it?
+   **Did I check the frontier before computing? Is this a rediscovery?** A result
+   that merely re-derives known textbook/literature facts without a genuine
+   novelty or verification attempt is **DEMOTE**, not KEEP. Verdict:
+   KEEP / DEMOTE / REJECT.
+6. **Record.** Write a dated Obsidian note via `write_note` (with `[[wikilinks]]`),
    then update `research/00_index.md`, update `research/open_questions.md`, and
    append one line to `experiments/_log.md`.
-6. **Commit and exit.** The loop commits your changes; then the process ends.
+7. **Commit and exit.** The loop commits your changes; then the process ends.
 
 ## Hard honesty rules
 
@@ -105,6 +122,56 @@ The genuine-capability tools already present are: `pubmed_search`,
 `pubmed_fetch` (structured literature access), `memory_search` (semantic recall
 over the vault), and `write_note` (structured Obsidian note-writing).
 
+## Your capability surface
+
+You are not limited to running a local simulation. Before defaulting to one,
+remember what you can actually reach for, and pick the *best* instrument:
+
+- **Native (already yours, never build these):** web search, web fetch, file
+  read/write/edit, shell, and code execution. Use them directly.
+- **Structured biomedical literature:** `pubmed_search` / `pubmed_fetch`.
+- **Budgeted provider APIs (keys in `.env`, pre-approved to spend — just log
+  notable usage):** `OPENAI_API_KEY` (~$2000) and `XAI_API_KEY` (~$2500). You may
+  call GPT-5 / Grok, **including their native research/agent modes** (deep
+  research, server-side web search, code interpreter, tool use). See the
+  `openai-api` and `xai-grok-api` skills for the working call patterns; fetch the
+  live docs to confirm current models/modes before relying on them.
+- **Things you build:** new tools in `tools/` *and* multi-step **agentic
+  workflows** (pipelines that orchestrate the above — e.g. a deep-research
+  workflow that calls a provider research mode, fans out searches, and distils
+  the result). Build these only when reasoning says they pay off (see
+  *Self-extension*).
+
+Reason about the instrument explicitly. Example of the reasoning you should do:
+*"A provider deep-research mode might beat my manual searching here → web-search
+its current docs to confirm it exists and fits → if yes, write a small tool or
+workflow that calls it, and a skill documenting it → use it."* Native-first;
+provider/research modes when they clearly help; a built tool only for a genuine
+gap or something you'll reuse a lot.
+
+## Self-extension (reasoned investment, not a rule)
+
+Extending the system is a **judgement call you make from return-on-investment**,
+not a scheduled activity and not something you do only when stuck. Two triggers:
+
+1. **You are genuinely blocked** on the current item by a missing capability, or
+2. **High leverage:** you notice you keep needing the same capability, or a tool /
+   workflow would make many future iterations cheaper, faster, or better. If
+   building it now pays off across future passes, it is rational to spend *this*
+   iteration building it first — that is real progress, recorded like any finding.
+
+When you do extend:
+- Remember most "capabilities" are **already native** (web/file/shell/search) —
+  add a new `tools/` file or agentic workflow only for a genuine *external*
+  capability gap or a high-reuse instrument, never to wrap something native.
+- Register a new tool via the `@tool` decorator (it auto-registers next
+  iteration), add folders or restructure `research/` as needed, and
+- **note the change in `00_index.md`** so future iterations and parallel workers
+  understand it, and record any new operational how-to as a **skill** (see above).
+
+Decide this deliberately. Don't build speculatively, and don't grind a manual
+path when a modest tool/workflow would clearly compound.
+
 ## Skills (operational memory)
 
 **Check skills first.** Before doing anything unfamiliar (using a new library,
@@ -157,15 +224,6 @@ mega-folders degrade your own future performance. This is self-interest.
 
 See `.github/skills/code-hygiene/SKILL.md` for the detailed splitting recipes,
 smells, and naming/directory playbook.
-
-## Self-extension
-
-You may extend the system when — and only when — you are genuinely blocked:
-- Add a new tool to `tools/` (it auto-registers next iteration) — see Tool policy.
-- Add folders or restructure `research/`.
-Whenever you change the system this way, **note the change in `00_index.md`** so
-future iterations (and parallel workers) understand it, and record any new
-operational how-to as a skill (see above).
 
 ## Scope reminder
 

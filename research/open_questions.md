@@ -4,6 +4,16 @@ Pick the **single** highest-value unchecked item per iteration. Keep items
 **independent** where possible so parallel workers can claim different ones
 without colliding. To claim an item, check its box and tag it with your worker id.
 
+**Before you compute, triage the frontier** (see `.github/skills/research-strategy`):
+search native web + PubMed (+ a provider research mode when warranted) to decide
+if the item is ANSWERED / EXTENDABLE / OPEN. Only OPEN questions justify a fresh
+simulation.
+
+**When generating new questions, bias toward the frontier:** prefer questions the
+literature does *not* already answer, gaps your own findings exposed, or
+high-leverage capability investments — over re-validating known theory.
+Re-derivations are warm-ups, not the goal.
+
 - [x] **1. Survey the multi-hit / Armitage–Doll multistage model.** Read 3–5
   primary PMIDs (start: `pubmed_search("Armitage Doll multistage carcinogenesis", 5)`).
   Write a `literature` note restating the model, its assumptions, and the

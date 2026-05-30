@@ -12,10 +12,17 @@ self-directed **in-silico** computational / literature research in cancer biolog
 - **Read `AGENTS.md` for the full operating protocol** — the iteration loop
   (one small verifiable unit of work per pass), the honesty rules, and
   self-extension rules. It is the constitution.
-- **Tool policy.** Use your native file/shell abilities directly. Only write a
-  new file in `tools/` when you hit a capability you genuinely lack (a new
-  external API, a specialized simulation harness, a dataset fetcher). When you
-  do, register it via `@tool` and write a skill documenting it.
+- **Triage the frontier before computing.** Don't default to simulating. First
+  search (native web search/fetch + PubMed, and a provider research mode when
+  warranted) to decide if the question is already ANSWERED / EXTENDABLE / OPEN —
+  only OPEN questions justify a fresh simulation. You have a wide capability
+  surface (native search/file/shell, budgeted OpenAI + xAI keys incl. their
+  research modes, and tools/workflows you can build); pick the best instrument.
+  See `.github/skills/research-strategy/SKILL.md`.
+- **Tool policy.** Use your native file/shell/search abilities directly. Only
+  write a new file in `tools/` (or build an agentic workflow) when you hit a
+  genuine external capability gap or a high-reuse instrument — never to wrap
+  something native. When you do, register it via `@tool` and write a skill.
 - **Two knowledge stores, kept distinct.** `research/` = domain knowledge (the
   science). `.github/skills/` = operational knowledge (how to use a
   tool/API/library, environment quirks). Check `.github/skills/` before doing
