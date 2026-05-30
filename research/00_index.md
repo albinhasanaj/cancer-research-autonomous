@@ -40,6 +40,13 @@ This is the map of the research vault. Every iteration updates it.
   sufficient extension** for the late-life peak-and-decline. Script:
   `simulations/cellpool_senescence_incidence.py`.
 
+- [[2026-05-30-sl-bipartite-network]] — bipartite driver-loss ↔ druggable-target
+  network (item 7). 8 drivers × 11 targets × 17 SL edges, weighted by TCGA
+  pan-cancer frequency. ATR/CHK1/WEE1 top population coverage (57% via
+  TP53+ATM); PARP1 highest degree (3 contexts, 31%). Script:
+  `simulations/sl_bipartite_network.py`; output:
+  `simulations/output/sl_network_{targets,drivers}.csv`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -69,7 +76,8 @@ _(none yet — open hypotheses under review will be linked here)_
 - **Synthetic-lethal thread.** Question 5 (literature survey of SL principles
   and key pairs) → Question 7 (bipartite driver↔target network + centrality) →
   Question 8 (Boolean network SL simulation). Q5 closed: 5 SL pairs surveyed,
-  grounded in 8 PMIDs. Q7 and Q8 open.
+  grounded in 8 PMIDs. **Q7 closed:** bipartite network built; ATR/CHK1/WEE1
+  top coverage (57%), PARP1 highest degree (3 contexts). Q8 open.
 
 ## System changes
 

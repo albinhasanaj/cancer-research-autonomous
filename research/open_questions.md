@@ -73,10 +73,14 @@ without colliding. To claim an item, check its box and tag it with your worker i
 
 ## Open candidate questions (synthetic-lethal thread)
 
-- [ ] **7. Build a bipartite driver-loss ↔ druggable-target network** from the
+- [x] **7. Build a bipartite driver-loss ↔ druggable-target network** from the
   SL pairs surveyed in item 5 plus TCGA/COSMIC driver-mutation frequencies.
   Compute degree/centrality to identify high-coverage therapeutic targets.
   Purely computational (graph + public data).
+  → Done 2026-05-30, see [[2026-05-30-sl-bipartite-network]]. 8 drivers × 11
+  targets × 17 SL edges weighted by TCGA frequency. ATR/CHK1/WEE1 top
+  population coverage (57% via TP53+ATM); PARP1 highest degree (3 contexts,
+  31%). Script: `simulations/sl_bipartite_network.py`.
 
 - [ ] **8. Boolean network SL simulation.** Construct a small Boolean network
   of a canonical pathway (e.g. DDR or cell-cycle) and simulate single vs

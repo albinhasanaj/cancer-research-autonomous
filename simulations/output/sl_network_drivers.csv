@@ -1,0 +1,9 @@
+driver,frequency,n_targets,targets
+TP53_mut,0.5,3,ATR; CHK1; WEE1
+KRAS_mut,0.25,1,PARP1
+MTAP_del,0.15,2,PRMT5; MAT2A
+dMMR_MSIH,0.12,1,WRN
+RB1_loss,0.08,4,AURKA; AURKB; PLK1; TTK
+ATM_loss,0.07,3,ATR; CHK1; WEE1
+BRCA1_loss,0.03,1,PARP1
+BRCA2_loss,0.03,1,PARP1

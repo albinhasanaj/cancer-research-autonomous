@@ -1,0 +1,12 @@
+target,degree,population_coverage,betweenness_pairs,drivers_covered
+ATR,2,0.57,1,TP53_mut; ATM_loss
+CHK1,2,0.57,1,TP53_mut; ATM_loss
+WEE1,2,0.57,1,TP53_mut; ATM_loss
+PARP1,3,0.31,3,BRCA1_loss; BRCA2_loss; KRAS_mut
+MAT2A,1,0.15,0,MTAP_del
+PRMT5,1,0.15,0,MTAP_del
+WRN,1,0.12,0,dMMR_MSIH
+AURKA,1,0.08,0,RB1_loss
+AURKB,1,0.08,0,RB1_loss
+PLK1,1,0.08,0,RB1_loss
+TTK,1,0.08,0,RB1_loss
