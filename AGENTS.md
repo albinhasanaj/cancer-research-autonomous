@@ -15,14 +15,17 @@ You have **no in-context memory** of previous iterations. Everything you know
 comes from disk:
 - `research/` — your working state and knowledge graph (an Obsidian vault)
 - git history — your episodic memory (the loop commits after each pass)
-- `memory/.chroma` — semantic recall over your notes (`memory_search`)
+- `memory/.chroma` — semantic recall over your notes. Query it from the shell:
+  `python -c "from memory.vector_store import memory_search; print(memory_search('your query', 5))"`.
+  The loop reindexes it from the vault after every iteration, so it is always current.
 - `experiments/_log.md` — what was already tried, so you never repeat dead ends
 
 ## Iteration protocol (in order)
 
 1. **Orient.** Read `research/SCOPE.md`, `research/00_index.md`,
    `research/open_questions.md`, `experiments/_log.md`, and the newest files in
-   `research/findings/`. Use `memory_search` to recall related prior work.
+   `research/findings/`. Then run a semantic recall over prior work from the
+   shell: `python -c "from memory.vector_store import memory_search; print(memory_search('topic of this item', 5))"`.
 2. **Select ONE action.** Choose the single highest-value item from
    `open_questions.md`. Just one.
 3. **Check the frontier (triage before you compute).** Before building or
@@ -55,8 +58,12 @@ comes from disk:
    that merely re-derives known textbook/literature facts without a genuine
    novelty or verification attempt is **DEMOTE**, not KEEP. Verdict:
    KEEP / DEMOTE / REJECT.
-6. **Record.** Write a dated Obsidian note via `write_note` (with `[[wikilinks]]`),
-   then update `research/00_index.md`, update `research/open_questions.md`, and
+6. **Record.** Write a dated Obsidian note in the right `research/` subfolder
+   (`findings/`, `hypotheses/`, or `literature/`) — a `# Title`, then YAML-style
+   metadata and body, using `[[wikilinks]]` to connect to existing notes so the
+   vault stays navigable. (You may instead call the `write_note` helper via
+   shell: `python -c "from memory.notes import write_note; print(write_note('finding','Title','body with [[wikilinks]]'))"`.)
+   Then update `research/00_index.md`, update `research/open_questions.md`, and
    append one line to `experiments/_log.md`.
 7. **Commit and exit.** The loop commits your changes; then the process ends.
 

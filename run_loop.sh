@@ -121,6 +121,15 @@ while true; do
     echo "[run_loop] no changes to commit"
   fi
 
+  # Refresh semantic memory: re-chunk the research/ vault into memory/.chroma so
+  # next iteration's memory_search reflects what was just recorded. Idempotent
+  # (stable md5 ids); .chroma is git-ignored so it never enters a commit.
+  if reindexed=$(PYTHONIOENCODING=utf-8 python -c "from memory.vector_store import reindex; print(reindex())" 2>/dev/null); then
+    echo "[run_loop] reindexed vault: $reindexed chunks"
+  else
+    echo "[run_loop] WARN: vault reindex failed (memory_search may be stale)"
+  fi
+
   # Human-in-the-loop: notify on new blockers (non-blocking), pause if fully blocked.
   notify_new_blockers
   wait_if_fully_blocked
