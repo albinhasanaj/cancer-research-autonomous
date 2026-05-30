@@ -119,8 +119,23 @@ Re-derivations are warm-ups, not the goal.
   SL penetrance as a continuous score rather than binary. Compare rank order
   to clinical drug-sensitivity data.
 
-- [ ] **11. MSI-stratified co-deletion test or DepMap functional validation.**
+- [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-
   stable) tumours only, OR use DepMap cell-line dependency data to test whether
   WRN-dependent lines are enriched for BRCA loss. Follow-up to the confound
   identified in item 9.
+  → Done 2026-05-30, see [[2026-05-30-depmap-wrn-brca-validation]]. Used DepMap
+  26Q1 CRISPR data (1208 lines, Gene Dependency + Chronos). All-lines: strong
+  BRCA-mut→WRN-dep signal (p=2e-6) but CONFOUNDED by MSI co-occurrence.
+  MSS-only (92 MSI-proxy excluded): borderline p=0.053, small effect r=0.15.
+  Conclusion: DepMap does NOT robustly confirm direct BRCA+WRN SL independent
+  of MSI. Boolean model's prediction likely a topology artifact.
+  Script: `simulations/depmap_wrn_brca_validation.py`.
+
+- [ ] **12. Pan-DepMap SL discovery: which gene pairs show strongest
+  context-dependent co-dependency beyond known MSI→WRN?** Use the DepMap API
+  to systematically screen DDR gene dependencies (ATR, CHK1, WEE1, PARP1)
+  stratified by driver mutation context (TP53-mut vs WT, ATM-loss vs WT).
+  Extends the bipartite network (item 7) with functional DepMap evidence.
+  Tests whether the network's top-ranked targets (ATR/CHK1/WEE1 in TP53/ATM
+  context) are confirmed by CRISPR screens.

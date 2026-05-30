@@ -1,0 +1,27 @@
+{
+  "analysis": "DepMap WRN dependency vs BRCA1/2 loss",
+  "dataset": "CRISPR Gene Dependency",
+  "score_type": "Gene Dependency probability (higher=more dependent)",
+  "n_lines_wrn_scored": 1208,
+  "n_brca_mutant_damaging": 101,
+  "n_brca1_mutant": 36,
+  "n_brca2_mutant": 68,
+  "all_lines": {
+    "brca_mut_mean": 0.3653732501870969,
+    "brca_mut_median": 0.1255168988,
+    "brca_wt_mean": 0.134011548134555,
+    "brca_wt_median": 0.06007913535,
+    "mann_whitney_U": 47877.0,
+    "p_one_sided_greater": 1.955211716644284e-06,
+    "p_two_sided": 3.910423433288568e-06,
+    "rank_biserial_r": -0.34766086809660535
+  },
+  "mss_proxy": {
+    "threshold": 0.5,
+    "n_msi_proxy": 92,
+    "n_brca_mut_mss": 43,
+    "n_brca_wt_mss": 1073,
+    "p_one_sided_greater": 0.05257783366296887,
+    "rank_biserial_r": -0.1455818288216042
+  }
+}

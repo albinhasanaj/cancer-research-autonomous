@@ -59,6 +59,13 @@ This is the map of the research vault. Every iteration updates it.
   validate methodology. Needs MSI stratification. Script:
   `simulations/tcga_codeletion_counterselection.py`.
 
+- [[2026-05-30-depmap-wrn-brca-validation]] — DepMap functional validation of
+  BRCA+WRN SL (item 11). 1208 cell lines, CRISPR gene dependency + Chronos.
+  **Honest mixed/negative:** strong signal across all lines (p=2e-6) is
+  CONFOUNDED by MSI co-occurrence; MSS-only analysis drops to borderline
+  (p=0.053, r=0.15). DepMap does not robustly confirm direct BRCA+WRN SL
+  independent of MSI. Script: `simulations/depmap_wrn_brca_validation.py`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -94,8 +101,11 @@ _(none yet — open hypotheses under review will be linked here)_
   recovers 9/9 known SL pairs from topology; 2 novel predictions (BRCA+WRN).
   **Q9 closed (partial-negative):** naive co-deletion test confounded by
   MSI-driven co-occurrence; ovarian trends ME but underpowered; MSI
-  stratification needed. Next open: Q10 (stochastic extension), Q11
-  (MSI-stratified/DepMap validation).
+  stratification needed. **Q11 closed (mixed/negative):** DepMap functional
+  validation — strong WRN dependency signal in BRCA-mut lines (p=2e-6) is
+  confounded by MSI; MSS-only = borderline (p=0.053). BRCA+WRN prediction
+  likely artifact of simplified Boolean topology. Next open: Q10 (stochastic
+  extension).
 
 ## System changes
 
