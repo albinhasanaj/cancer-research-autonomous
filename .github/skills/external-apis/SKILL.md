@@ -1,6 +1,6 @@
 ---
 name: external-apis
-description: How to call external APIs from code — LLM providers (OpenAI, Anthropic) and data sources (NCBI E-utilities / PubMed). Use when writing a tool or script that hits an external service, needs auth, or runs into rate limits. Covers fetching current docs before integrating.
+description: How to call external APIs from code — LLM providers (OpenAI, xAI Grok) and data sources (NCBI E-utilities / PubMed). Use when writing a tool or script that hits an external service, needs auth, or runs into rate limits. Covers fetching current docs before integrating.
 ---
 
 # Calling external APIs
@@ -17,12 +17,27 @@ API surfaces drift. Before integrating a service, **fetch its current docs**
 working pattern back here (or in a service-specific skill) so the next
 integration is copy-paste.
 
+## LLM providers used by this project
+
+This project uses **two** LLM providers only — **OpenAI** (`OPENAI_API_KEY`) and
+**xAI Grok** (`XAI_API_KEY`). Do not add others. Each has its own how-to skill:
+
+- **OpenAI** → see [`openai-api`](../openai-api/SKILL.md)
+- **xAI Grok** → see [`xai-grok-api`](../xai-grok-api/SKILL.md)
+
+**When to use which:** OpenAI for native tool-rich agentic calls and reasoning
+(Responses API with built-in web_search/code_interpreter/file_search); xAI/Grok
+for Grok-specific capability (web/X search) or to spread load/cost across the two
+generous free credit pools (~$2000 OpenAI, ~$2500 xAI). Both share the same
+OpenAI-SDK shape, so a tool can switch providers by swapping `base_url` + key +
+model. Use strong models freely; just log notable usage.
+
 ## Services → where to read the current docs
 
 | Service              | Docs (fetch live)                                      |
 | -------------------- | ------------------------------------------------------ |
 | OpenAI               | https://platform.openai.com/docs                       |
-| Anthropic            | https://docs.claude.com                                |
+| xAI Grok             | https://docs.x.ai                                      |
 | NCBI E-utilities     | https://www.ncbi.nlm.nih.gov/books/NBK25501/           |
 
 ## Known working patterns in this repo
