@@ -172,6 +172,17 @@ This is the map of the research vault. Every iteration updates it.
   checkpoint (1e6) from first principles; derives adaptive therapy criterion as
   corollary. Script: `simulations/unified_escape_framework.py`.
 
+- [[2026-05-31-spatial-immunoediting-architecture]] — Spatial immunoediting /
+  tissue architecture extension (item 23). Niche-frailty model: each lineage
+  assigned immune accessibility a_i from tissue-architecture distribution.
+  **Honest positive with nuance:** spatial architecture WEAKENS the population
+  filter (~90%, P(mal) 0.20→0.38 at matched mean) and creates a sheltered
+  accumulation route (43% of deep-crypt successes need no escape vs 21%
+  well-mixed), BUT does NOT convert to rate-limiting (delay ~0.98). Heterogeneity
+  itself adds ~15% incidence beyond mean reduction. Sheltered tumours retain more
+  neoantigens (2.80 vs 2.43). Migration smoothly erodes sheltering. Script:
+  `simulations/spatial_immunoediting.py`.
+
 ## Active hypotheses
 
 _(none yet — open hypotheses under review will be linked here)_
@@ -227,6 +238,16 @@ _(none yet — open hypotheses under review will be linked here)_
   0.3 — competition IS the mechanism. **Q22 closed:** unified analytic framework
   P(escape)=1−exp(−Φ) validated across all contexts; N_crit formula predicts
   simulation results within 2×; adaptive therapy criterion derived as corollary.
+
+- **Spatial immunoediting thread.** Question 21 (well-mixed immunoediting) →
+  Question 23 (spatial tissue architecture). **Q23 closed (honest positive with
+  nuance):** niche-frailty model with matched-mean controls shows spatial
+  architecture weakens the population filter (~90%, P(mal) 0.20→0.38) and
+  creates a sheltered accumulation route (43% of deep-crypt successes without
+  escape), but does NOT convert to rate-limiting (delay ~0.98). Heterogeneity
+  effect adds ~15% incidence beyond mean reduction. Sheltered tumours retain
+  more neoantigens (2.80 vs 2.43). Opens Q24 (TCGA neoantigen validation) and
+  Q25 (unified Φ with spatial mixture).
 
 - **Fitness-effect multistage thread.** Question 14 (driver-specific fitness
   effects / clonal expansion). Extends Armitage-Doll with selective advantage per

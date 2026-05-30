@@ -268,11 +268,31 @@ Re-derivations are warm-ups, not the goal.
   therapy criterion derived as corollary. Script:
   `simulations/unified_escape_framework.py`.
 
-- [ ] **23. Tissue architecture and spatial immunoediting.** The pre-malignant
+- [x] **23. Tissue architecture and spatial immunoediting.** The pre-malignant
   immunoediting model (item 21) assumes well-mixed clones. In reality, tissue
   architecture (crypts, lobules) creates spatial refugia where small clones may
   evade immune surveillance. Does spatial structure change the population-filter
-  vs rate-limiter conclusion? Agent-based spatial model on a tissue lattice.
+  vs rate-limiter conclusion?
+  → Done 2026-05-31, see [[2026-05-31-spatial-immunoediting-architecture]].
+  Niche-frailty model with matched-mean controls (150k–200k lineages). **Honest
+  positive with nuance:** architecture weakens the population filter (P(mal)
+  0.20→0.38 at matched mean; heterogeneity adds ~15% beyond mean reduction)
+  and creates sheltered accumulation route (43% of deep-crypt successes without
+  escape). BUT does NOT convert to rate-limiting (delay ~0.98 — robust across
+  all architectures). Sheltered tumours retain more neoantigens (2.80 vs 2.43).
+  Migration smoothly erodes benefit. Script:
+  `simulations/spatial_immunoediting.py`.
+
+- [ ] **24. Validate spatial neoantigen-retention prediction in TCGA data.**
+  Item 23 predicts crypt-origin tumours retain more neoantigens than surface-
+  exposed tumours. Test against TCGA neoantigen counts stratified by tissue
+  of origin architecture (e.g. colorectal crypts vs melanoma surface). Purely
+  computational with public data.
+
+- [ ] **25. Unified escape framework with spatial heterogeneity.** Extend the
+  unified Φ formula (item 22) to a mixture model: P(escape) = E_a[1−exp(−Φ(a))]
+  where Φ depends on accessibility. Derive analytic predictions for how tissue
+  architecture modulates therapy resistance thresholds. Connects items 22 + 23.
 
 - [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-
