@@ -20,3 +20,8 @@ self-directed **in-silico** computational / literature research in cancer biolog
   science). `.github/skills/` = operational knowledge (how to use a
   tool/API/library, environment quirks). Check `.github/skills/` before doing
   anything unfamiliar, and record new how-to learnings there.
+- **Code & repo hygiene (always on).** Keep files ≤ ~200 lines (split before
+  ~300), one responsibility per file, descriptive greppable names, no flat
+  folders (group into subdirs past ~8–10 files), an index/README per major
+  directory, refactor-before-grow. Applies to `research/` too. See `AGENTS.md`
+  and `.github/skills/code-hygiene/SKILL.md`.

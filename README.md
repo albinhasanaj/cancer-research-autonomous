@@ -29,10 +29,15 @@ memory/              vector_store (ChromaDB) + notes (Obsidian write_note)
 api_backend/         FALLBACK raw-API loop (llm_client, prompts, iteration,
                      ralph.sh, primitive file/shell tools) — used only without Copilot
 orchestration/       design for the future parallel-orchestrator layer
+scripts/             repo maintenance utilities (e.g. check_hygiene.py)
 research/            the Obsidian vault: SCOPE, index, open questions, notes
 experiments/         _log.md — one line per iteration, including dead ends
 simulations/ data/ scratch/   working artifacts
 ```
+
+Every major directory carries its own `README.md` map. Run
+`python scripts/check_hygiene.py` to flag oversized files, flat-dump
+directories, or missing maps (see `AGENTS.md` > Code & repo hygiene).
 
 ## Execution model
 

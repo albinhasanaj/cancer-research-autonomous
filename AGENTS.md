@@ -82,6 +82,42 @@ Keep the two knowledge stores distinct: **`research/`** holds *domain knowledge*
 "How to install chromadb" is a skill; "clonal-evolution dynamics" is a research
 note. Never mix them.
 
+## Code & repo hygiene (ALWAYS APPLIES)
+
+This governs every file you touch — code and research artifacts alike. The
+structure of the repo IS your working memory: you navigate by grep/ls/cat and by
+reading an index first, not by holding the whole tree in your head. Small,
+single-purpose files are replaceable in one edit; spaghetti files and flat
+mega-folders degrade your own future performance. This is self-interest.
+
+- **File size.** Target ≤ ~200 lines per file. If a file passes ~300 lines, split
+  it before adding anything. If you ever feel the urge to write "… rest remains
+  the same" / "… etc" in an edit, the file is too long — split it. Every file
+  must be replaceable in a single edit.
+- **One responsibility per file.** A file/module does one clear thing, named so
+  its purpose is obvious from the filename. Prefer many small focused files over
+  few large ones. New capability → new file/module; don't grow an existing one.
+- **Directory fan-out.** No flat dumps. If a directory holds more than ~8–10
+  sibling files, group them into subdirectories by concern. Organise by
+  domain/concern, not by file type alone. Hierarchy over piles.
+- **Separation of concerns & layering.** Each package/module has a single
+  responsibility and minimal coupling to others. Keep a sane dependency flow (no
+  circular imports; lower layers don't import higher ones). Shared logic goes in
+  a clearly-named shared module, not copy-pasted.
+- **Maps first.** Every major directory has a short `README.md` (or `INDEX.md`)
+  listing what's inside and where to find things. When you change structure,
+  update the directory's map AND the root index in the same commit. Read the
+  index before exploring a directory.
+- **Refactor-before-grow.** When a file crosses the size cap or starts mixing
+  concerns, refactor/split FIRST, then add the new code. Never bolt onto a file
+  that's already too big.
+- **Applies to research too.** The `research/` vault follows the same rules:
+  organise notes into subfolders by thread/topic, keep an index per subfolder,
+  link with `[[wikilinks]]` — never a flat folder of hundreds of dated files.
+
+See `.github/skills/code-hygiene/SKILL.md` for the detailed splitting recipes,
+smells, and naming/directory playbook.
+
 ## Self-extension
 
 You may extend the system when — and only when — you are genuinely blocked:
