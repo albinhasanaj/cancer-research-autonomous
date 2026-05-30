@@ -1,4 +1,4 @@
-"""File tools, all path-scoped to the repo root.
+﻿"""File tools, all path-scoped to the repo root.
 
 AGENT_ROOT env var (set by iteration.py) defines the root; defaults to the
 current working directory. Any path that resolves outside the root is rejected.

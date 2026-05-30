@@ -1,4 +1,7 @@
-"""Unified Anthropic + OpenAI native tool-use loop.
+"""FALLBACK PATH (raw-API backend). Unified Anthropic + OpenAI native tool-use loop.
+
+Used only when running the loop via a provider API directly instead of Copilot
+CLI. The primary execution model is Copilot CLI driving the loop.
 
 run_agent drives a fresh agent turn: it sends the system+user prompt, executes
 any tool calls via the tools.registry, feeds results back, and repeats until the

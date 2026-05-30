@@ -29,7 +29,7 @@ git worktree / branch** so writes never collide:
 
 ```
 git worktree add ../worker-<id> -b worker/<id>
-# worker runs `python -m agentic_loops.iteration` against its worktree
+# worker runs `python -m api_backend.iteration` against its worktree
 ```
 
 A worker **claims** an item by checking its box in `open_questions.md` and

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# Ralph loop: each pass is a FRESH process with a clean context window.
+# Ralph loop (FALLBACK PATH — raw-API backend).
+# Drives the provider-API iteration directly. The PRIMARY execution model is
+# Copilot CLI driving the loop; use this only when running without Copilot.
+#
+# Each pass is a FRESH process with a clean context window.
 # Nothing persists in-memory between iterations; all state lives on disk + git.
 #
 # Env:
@@ -26,7 +30,7 @@ while true; do
   echo "[ralph] iteration $i  ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
   echo "=============================="
 
-  python -m agentic_loops.iteration
+  python -m api_backend.iteration
   rc=$?
 
   if [ $rc -ne 0 ]; then

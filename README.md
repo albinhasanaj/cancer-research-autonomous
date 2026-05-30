@@ -21,17 +21,29 @@ iterations. ALL memory lives on disk:
 ## Layout
 
 ```
-AGENT.md            operating constitution (fed to the agent each iteration)
-config/config.yaml  provider/model/loop/compute settings
-agents/             llm_client (unified tool-use loop), prompts
-tools/              registry + file / pubmed / exec tools (auto-discovered)
-memory/             vector_store (ChromaDB) + notes (Obsidian write_note)
-agentic_loops/      iteration.py (one fresh pass) + ralph.sh (the loop)
-orchestration/      design for the future parallel-orchestrator layer
-research/           the Obsidian vault: SCOPE, index, open questions, notes
-experiments/        _log.md — one line per iteration, including dead ends
+AGENTS.md            operating constitution (auto-loaded each iteration)
+.github/             copilot-instructions.md + skills/ (operational how-to memory)
+config/config.yaml   provider/model/loop/compute settings
+tools/               registry (@tool) + pubmed tool — only genuine capabilities
+memory/              vector_store (ChromaDB) + notes (Obsidian write_note)
+api_backend/         FALLBACK raw-API loop (llm_client, prompts, iteration,
+                     ralph.sh, primitive file/shell tools) — used only without Copilot
+orchestration/       design for the future parallel-orchestrator layer
+research/            the Obsidian vault: SCOPE, index, open questions, notes
+experiments/         _log.md — one line per iteration, including dead ends
 simulations/ data/ scratch/   working artifacts
 ```
+
+## Execution model
+
+The **primary** execution model is **Copilot CLI driving the loop** directly: it
+uses its native file/shell abilities and the genuine-capability tools (`pubmed_*`,
+`memory_search`, `write_note`). The constitution is `AGENTS.md` (auto-loaded), and
+operational how-to knowledge lives in `.github/skills/`.
+
+`api_backend/` is an **optional fallback** that drives the same loop via a raw
+provider API (Anthropic/OpenAI) — only needed when running without Copilot as the
+brain. That path bundles its own primitive file/shell tools.
 
 ## Setup
 
@@ -40,18 +52,18 @@ pip install -r requirements.txt
 cp .env.example .env   # fill in ANTHROPIC_API_KEY (or OPENAI_API_KEY)
 ```
 
-## Running
+## Running (fallback raw-API path)
 
 A single iteration (fresh context, orient -> act -> critic -> record):
 
 ```bash
-python -m agentic_loops.iteration
+python -m api_backend.iteration
 ```
 
 The full loop (fresh process per pass, commits between):
 
 ```bash
-MAX_ITERS=0 SLEEP=5 bash agentic_loops/ralph.sh
+MAX_ITERS=0 SLEEP=5 bash api_backend/ralph.sh
 ```
 
 The human watches progress via the Obsidian vault (`research/`) and `git log`.
@@ -60,8 +72,9 @@ The human watches progress via the Obsidian vault (`research/`) and `git log`.
 
 - **In-silico only.** Modelling, simulation, literature synthesis, hypothesis
   generation. No wet-lab protocols, nothing physically hazardous, no medical
-  advice, no "cure" claims. See `research/SCOPE.md` and `AGENT.md`.
-- **`run_shell` is NOT sandboxed.** It executes arbitrary commands on the host
-  with the agent's privileges. Isolate at the OS level (container / VM /
-  dedicated machine / restricted user) before running an autonomous loop.
+  advice, no "cure" claims. See `research/SCOPE.md` and `AGENTS.md`.
+- **Shell execution is NOT sandboxed.** The agent runs arbitrary commands on the
+  host with its own privileges (native shell, or `run_shell` in the fallback
+  path). Isolate at the OS level (container / VM / dedicated machine / restricted
+  user) before running an autonomous loop.
 - Secrets live in `.env` (git-ignored). Never commit keys.

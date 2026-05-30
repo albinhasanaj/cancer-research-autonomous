@@ -1,4 +1,4 @@
-"""Execution tools — how the agent uses the host CPU/GPU.
+﻿"""Execution tools ÔÇö how the agent uses the host CPU/GPU.
 
 SECURITY NOTE: run_shell is intentionally NOT sandboxed. It executes arbitrary
 commands on the host with the agent's privileges. The human operator MUST

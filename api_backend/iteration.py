@@ -1,6 +1,12 @@
-"""One fresh-context Ralph iteration: orient -> act -> critic -> record.
+"""FALLBACK PATH (raw-API backend). One fresh-context Ralph iteration.
 
-Run as:  python -m agentic_loops.iteration
+This is the optional raw-API backend, used ONLY when the loop is driven by a
+provider API directly instead of by Copilot CLI as the brain. The primary
+execution model is Copilot CLI driving the loop. Because this path has no native
+file/shell abilities, it registers the primitive tools bundled in this package
+(primitive_tools_file / primitive_tools_exec).
+
+Run as:  python -m api_backend.iteration
 
 Nothing persists in-context between iterations; all state is on disk. This module
 sets AGENT_ROOT, loads config, registers tools, reindexes the vector store, then
@@ -25,7 +31,7 @@ def _read(root: Path, rel: str, limit: int = 6000) -> str:
 
 def _load_config(root: Path):
     import yaml
-    from agents.llm_client import LLMConfig
+    from api_backend.llm_client import LLMConfig
     cfg_path = root / "config" / "config.yaml"
     data = {}
     if cfg_path.exists():
@@ -47,12 +53,16 @@ def main():
     sys.path.insert(0, str(root))
 
     from tools import registry
-    from agents.llm_client import run_agent
-    from agents import prompts
+    from api_backend.llm_client import run_agent
+    from api_backend import prompts
 
-    # Register tools: auto-discover the tools package, then explicitly import the
-    # memory tools so their @tool decorators run.
+    # Register tools: auto-discover the genuine-capability tools package, then
+    # explicitly import the memory tools so their @tool decorators run. This
+    # fallback path also registers the primitive file/shell tools, since (unlike
+    # Copilot CLI) a raw provider API has no native file/shell abilities.
     registry.discover()
+    import api_backend.primitive_tools_file  # noqa: F401 (registers file ops)
+    import api_backend.primitive_tools_exec  # noqa: F401 (registers run_python/run_shell)
     import memory.notes  # noqa: F401  (registers write_note)
     import memory.vector_store as vector_store  # registers memory_search
 
@@ -69,7 +79,7 @@ def main():
     cfg = _load_config(root)
     print(f"[iteration] provider={cfg.provider} model={cfg.model}")
 
-    agent_md = _read(root, "AGENT.md")
+    agent_md = _read(root, "AGENTS.md")
     scope = _read(root, "research/SCOPE.md")
     index = _read(root, "research/00_index.md")
     open_q = _read(root, "research/open_questions.md")
@@ -84,7 +94,7 @@ def main():
     # --- Researcher turn ---
     cfg.system = prompts.RESEARCHER
     researcher_prompt = (
-        "=== AGENT.md (constitution) ===\n" + agent_md +
+        "=== AGENTS.md (constitution) ===\n" + agent_md +
         "\n\n=== research/SCOPE.md ===\n" + scope +
         "\n\n=== research/00_index.md ===\n" + index +
         "\n\n=== research/open_questions.md ===\n" + open_q +
