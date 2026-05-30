@@ -164,6 +164,14 @@ This is the map of the research vault. Every iteration updates it.
   via HLA-LOH) then accumulate neutrally. Neoantigen depletion ~20% confirmed
   (Lakatos 2020). Script: `simulations/immunoediting_driver_accumulation.py`.
 
+- [[2026-05-30-unified-escape-framework]] — Unified evolutionary escape framework
+  (item 22). Single analytic formula P(escape) = 1−exp(−Φ) with
+  Φ = u_eff·N₀·(b_S/|r_S|)·(r_R/b_R) unifies PARPi resistance, immune escape,
+  and immunoediting under one phase-transition structure. Validated within 2× of
+  all prior simulations. Explains 1000× N_crit difference between PARPi (8e7) and
+  checkpoint (1e6) from first principles; derives adaptive therapy criterion as
+  corollary. Script: `simulations/unified_escape_framework.py`.
+
 ## Active hypotheses
 
 _(none yet — open hypotheses under review will be linked here)_
@@ -205,19 +213,20 @@ _(none yet — open hypotheses under review will be linked here)_
 - **Resistance dynamics thread.** Question 13 (PARPi resistance via BRCA
   reversion) → Question 16 (multi-mechanism extension) → Question 18 (adaptive
   therapy scheduling) → **Question 19 (immune escape)** → **Question 20
-  (adaptive immune scheduling)**. Connects the multistage clonal-evolution
-  framework (birth-death process) with the SL thread (BRCA-PARP pair) and
-  immunotherapy. **Q13 closed:** phase transition at u·N0~1; MRD explains long
-  PFS; effective killing paradox identified. **Q16 closed:** 3 parallel routes
-  shift N0_crit 16× lower; regime-switching; ABCB1 efflux is the critical
-  blocking target. **Q18 closed (honest negative):** adaptive therapy marginal
-  (6–9%) for PARPi MRD. **Q19 closed (honest extension):** immune escape under
-  checkpoint therapy shows same phase-transition structure as PARPi resistance;
-  higher k → better checkpoint response; clonal neoantigen fraction modulates
-  response. **Q20 closed (honest positive):** adaptive checkpoint scheduling
-  delays escape +17–38% at N₀/K ≥ 0.3 — competition IS the mechanism. Unifying
-  criterion: benefit ∝ (N₀/K) × (r_S_off − r_E)/r_E explains why PARPi MRD
-  (item 18) failed but checkpoint bulk tumour (item 20) succeeds.
+  (adaptive immune scheduling)** → **Question 22 (unified escape framework)**.
+  Connects the multistage clonal-evolution framework (birth-death process) with
+  the SL thread (BRCA-PARP pair) and immunotherapy. **Q13 closed:** phase
+  transition at u·N0~1; MRD explains long PFS; effective killing paradox
+  identified. **Q16 closed:** 3 parallel routes shift N0_crit 16× lower;
+  regime-switching; ABCB1 efflux is the critical blocking target. **Q18 closed
+  (honest negative):** adaptive therapy marginal (6–9%) for PARPi MRD. **Q19
+  closed (honest extension):** immune escape under checkpoint therapy shows same
+  phase-transition structure as PARPi resistance; higher k → better checkpoint
+  response; clonal neoantigen fraction modulates response. **Q20 closed (honest
+  positive):** adaptive checkpoint scheduling delays escape +17–38% at N₀/K ≥
+  0.3 — competition IS the mechanism. **Q22 closed:** unified analytic framework
+  P(escape)=1−exp(−Φ) validated across all contexts; N_crit formula predicts
+  simulation results within 2×; adaptive therapy criterion derived as corollary.
 
 - **Fitness-effect multistage thread.** Question 14 (driver-specific fitness
   effects / clonal expansion). Extends Armitage-Doll with selective advantage per

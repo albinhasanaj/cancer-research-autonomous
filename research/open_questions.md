@@ -254,12 +254,19 @@ Re-derivations are warm-ups, not the goal.
   HLA-LOH) then accumulate remaining drivers neutrally. Neoantigen depletion
   ~20% confirmed. Script: `simulations/immunoediting_driver_accumulation.py`.
 
-- [ ] **22. Unified evolutionary escape framework: analytic treatment across
+- [x] **22. Unified evolutionary escape framework: analytic treatment across
   therapy types.** The simulations have now shown the same u·N·(selection ratio)~1
   phase transition in PARPi resistance (item 13), immune escape (item 19), and
   pre-malignant immunoediting (item 21). Derive a single analytic framework
   (multi-type branching process) that unifies these and predicts the critical
   population size for any targeted/immune therapy from first principles.
+  → Done 2026-05-30, see [[2026-05-30-unified-escape-framework]]. Triage: OPEN
+  (no published unified treatment found). Derived P(escape) = 1−exp(−Φ) with
+  Φ = u_eff·N₀·(b_S/|r_S|)·(r_R/b_R); validated within 2× across all prior
+  simulations (PARPi N_crit=8e7, checkpoint N_crit=9.5e5, multi-mechanism 8×
+  shrinkage). Explains 1000× N_crit difference from first principles. Adaptive
+  therapy criterion derived as corollary. Script:
+  `simulations/unified_escape_framework.py`.
 
 - [ ] **23. Tissue architecture and spatial immunoediting.** The pre-malignant
   immunoediting model (item 21) assumes well-mixed clones. In reality, tissue
