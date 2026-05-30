@@ -72,6 +72,13 @@ This is the map of the research vault. Every iteration updates it.
   underpowered); surprise BRCA1→ATR (d=0.47, p=0.013) not predicted by network.
   Bipartite network partially validated. Script:
   `simulations/depmap_ddr_context_screen.py`.
+- [[2026-05-30-stochastic-boolean-sl-penetrance]] — Stochastic Boolean
+  extension (item 10). Async update + noise (p∈{0.02,0.05,0.10}), 2000 reps;
+  SL penetrance as continuous score. **Top-5 SL pairs robust across noise**
+  (topology stable). **Honest negative on prediction:** Spearman ρ=0.27, p=0.31
+  vs DepMap Cohen's d — no significant rank correlation. Boolean topology
+  captures qualitative SL but not quantitative drug sensitivity. Script:
+  `simulations/stochastic_boolean_sl.py`.
 
 ## Literature notes
 
@@ -115,7 +122,11 @@ _(none yet — open hypotheses under review will be linked here)_
   pan-DepMap DDR screen — BRCA1→PARP1 (d=0.51) and TP53→CHEK1 (d=0.18)
   confirmed; ATM context all ns (underpowered n=36); surprise BRCA1→ATR
   (d=0.47) not predicted. Network partially validated; ATM coverage claim
-  overestimated. Next open: Q10 (stochastic extension).
+  overestimated. **Q10 closed (honest negative on prediction):** stochastic
+  extension confirms topological robustness (top-5 stable across noise levels)
+  but ρ=0.27 vs DepMap — topology does not predict quantitative drug
+  sensitivity. Boolean SL thread at useful ceiling. Next open: new threads
+  needed (data-driven or quantitative modelling).
 
 ## System changes
 

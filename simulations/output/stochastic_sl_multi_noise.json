@@ -1,0 +1,206 @@
+{
+  "0.02": {
+    "single_penetrance": {
+      "ATM": 0.276,
+      "ATR": 0.21,
+      "TP53": 0.202,
+      "CHK1": 0.1785,
+      "CHK2": 0.074,
+      "WEE1": 0.1485,
+      "BRCA1": 0.1655,
+      "BRCA2": 0.1655,
+      "PARP1": 0.1685,
+      "WRN": 0.1685,
+      "RB1": 0.1275,
+      "PLK1": 0.1275
+    },
+    "top10_sl": [
+      {
+        "pair": "RB1+PLK1",
+        "sl_score": 0.8725,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA1+PARP1",
+        "sl_score": 0.8315,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA1+WRN",
+        "sl_score": 0.8315,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA2+PARP1",
+        "sl_score": 0.8315,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA2+WRN",
+        "sl_score": 0.8315,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "TP53+CHK1",
+        "sl_score": 0.798,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "TP53+WEE1",
+        "sl_score": 0.798,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "ATR+TP53",
+        "sl_score": 0.765,
+        "penetrance": 0.975
+      },
+      {
+        "pair": "ATM+ATR",
+        "sl_score": 0.7065,
+        "penetrance": 0.9825
+      },
+      {
+        "pair": "ATM+CHK1",
+        "sl_score": 0.705,
+        "penetrance": 0.981
+      }
+    ]
+  },
+  "0.05": {
+    "single_penetrance": {
+      "ATM": 0.6565,
+      "ATR": 0.5485,
+      "TP53": 0.538,
+      "CHK1": 0.516,
+      "CHK2": 0.3705,
+      "WEE1": 0.4575,
+      "BRCA1": 0.5055,
+      "BRCA2": 0.5055,
+      "PARP1": 0.5025,
+      "WRN": 0.5025,
+      "RB1": 0.4665,
+      "PLK1": 0.4665
+    },
+    "top10_sl": [
+      {
+        "pair": "RB1+PLK1",
+        "sl_score": 0.5335,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA1+PARP1",
+        "sl_score": 0.4945,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA1+WRN",
+        "sl_score": 0.4945,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA2+PARP1",
+        "sl_score": 0.4945,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA2+WRN",
+        "sl_score": 0.4945,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "TP53+CHK1",
+        "sl_score": 0.462,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "TP53+WEE1",
+        "sl_score": 0.462,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "ATR+TP53",
+        "sl_score": 0.4325,
+        "penetrance": 0.981
+      },
+      {
+        "pair": "ATM+ATR",
+        "sl_score": 0.332,
+        "penetrance": 0.9885
+      },
+      {
+        "pair": "ATM+CHK1",
+        "sl_score": 0.3315,
+        "penetrance": 0.988
+      }
+    ]
+  },
+  "0.1": {
+    "single_penetrance": {
+      "ATM": 0.897,
+      "ATR": 0.832,
+      "TP53": 0.843,
+      "CHK1": 0.82,
+      "CHK2": 0.7545,
+      "WEE1": 0.7925,
+      "BRCA1": 0.8395,
+      "BRCA2": 0.8395,
+      "PARP1": 0.8325,
+      "WRN": 0.8325,
+      "RB1": 0.8085,
+      "PLK1": 0.8085
+    },
+    "top10_sl": [
+      {
+        "pair": "RB1+PLK1",
+        "sl_score": 0.1915,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA1+PARP1",
+        "sl_score": 0.1605,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA1+WRN",
+        "sl_score": 0.1605,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA2+PARP1",
+        "sl_score": 0.1605,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "BRCA2+WRN",
+        "sl_score": 0.1605,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "TP53+CHK1",
+        "sl_score": 0.157,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "TP53+WEE1",
+        "sl_score": 0.157,
+        "penetrance": 1.0
+      },
+      {
+        "pair": "ATR+TP53",
+        "sl_score": 0.149,
+        "penetrance": 0.992
+      },
+      {
+        "pair": "ATM+CHK1",
+        "sl_score": 0.0985,
+        "penetrance": 0.9955
+      },
+      {
+        "pair": "ATM+WEE1",
+        "sl_score": 0.0985,
+        "penetrance": 0.9955
+      }
+    ]
+  }
+}

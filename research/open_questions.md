@@ -114,10 +114,33 @@ Re-derivations are warm-ups, not the goal.
   needs MSI stratification or TMB correction. Script:
   `simulations/tcga_codeletion_counterselection.py`.
 
-- [ ] **10. Stochastic Boolean extension with noise/partial penetrance.** Make
+- [x] **10. Stochastic Boolean extension with noise/partial penetrance.** Make
   the Boolean network probabilistic (async update, noise on rules) and measure
   SL penetrance as a continuous score rather than binary. Compare rank order
   to clinical drug-sensitivity data.
+  → Done 2026-05-30, see [[2026-05-30-stochastic-boolean-sl-penetrance]].
+  Async update + noise p∈{0.02,0.05,0.10}, 2000 reps per pair. Top-5 SL pairs
+  (RB1+PLK1, BRCA1+PARP1, BRCA1+WRN, BRCA2+PARP1, BRCA2+WRN) are robust
+  across all noise levels. Honest negative: Spearman ρ=0.27, p=0.31 vs DepMap
+  Cohen's d — no significant rank correlation. Boolean topology captures
+  qualitative SL but NOT quantitative drug sensitivity. SL thread at ceiling;
+  further progress needs data-driven or quantitative (ODE) modelling.
+  Script: `simulations/stochastic_boolean_sl.py`.
+
+## Open candidate questions (new threads)
+
+- [ ] **13. Evolutionary dynamics of resistance to SL-based therapy.** Model a
+  population of tumour cells under PARP-inhibitor selection where BRCA-reversion
+  mutations restore HR. Stochastic birth-death with mutation; predict
+  time-to-resistance as f(tumour size, mutation rate, drug kill rate). Connects
+  the multistage (clonal evolution) and SL threads. Purely computational.
+
+- [ ] **14. Multi-hit model with driver-specific fitness effects.** Extend the
+  Armitage-Doll framework so each hit confers a selective advantage (not just
+  unlocks the next stage). Compare clonal expansion dynamics to neutral
+  accumulation. Literature suggests this matters (Beerenwinkel, Bozic). Could
+  explain why observed mutation rates in sequenced tumours exceed the k-hit
+  prediction.
 
 - [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-
