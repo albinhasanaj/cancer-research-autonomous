@@ -140,12 +140,31 @@ Re-derivations are warm-ups, not the goal.
   "Paradox of effective killing": stronger drug delays resistance in MRD.
   Script: `simulations/parp_resistance_dynamics.py`.
 
-- [ ] **14. Multi-hit model with driver-specific fitness effects.** Extend the
+- [x] **14. Multi-hit model with driver-specific fitness effects.** Extend the
   Armitage-Doll framework so each hit confers a selective advantage (not just
   unlocks the next stage). Compare clonal expansion dynamics to neutral
   accumulation. Literature suggests this matters (Beerenwinkel, Bozic). Could
   explain why observed mutation rates in sequenced tumours exceed the k-hit
   prediction.
+  → Done 2026-05-30, see [[2026-05-30-fitness-effect-multistage]]. Triage:
+  EXTENDABLE (Beerenwinkel 2007 / Bozic 2010 framework; delta = exponent
+  analysis). **Honest negative on hypothesis:** realistic s≈0.004 gives only
+  10-14% speedup; effective exponent slightly increases (more events in window),
+  NOT decreases. Only unrealistic s≥0.02 depresses the exponent. Clonal
+  expansion alone does NOT explain the driver-count discrepancy. Script:
+  `simulations/multistage_fitness_expansion.py`.
+
+- [ ] **15. Non-ordered hit accumulation model.** Relax the Armitage-Doll
+  assumption that hits must occur in strict order. Allow any-order acquisition
+  (combinatorial paths). Compare waiting times and age-incidence exponents to the
+  ordered model. This is a candidate explanation for the driver-count discrepancy
+  that item 14 ruled out for clonal expansion.
+
+- [ ] **16. Multi-mechanism PARPi resistance (reversion + efflux + shielding).**
+  Extend the single-mechanism resistance model (item 13) to include 3 parallel
+  resistance routes (BRCA reversion, drug efflux, replication fork protection).
+  How does the diversity of escape routes change the phase transition threshold
+  and time-to-resistance? Connects to clinical combination strategies.
 
 - [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-

@@ -89,6 +89,16 @@ This is the map of the research vault. Every iteration updates it.
   stronger drug → less mutation supply → delayed resistance in MRD. Script:
   `simulations/parp_resistance_dynamics.py`.
 
+- [[2026-05-30-fitness-effect-multistage]] — Multi-hit model with driver fitness
+  effects (item 14). Extends k-hit with clonal expansion (s per driver). At
+  realistic s≈0.004 (Bozic 2010): only 10–14% speedup; effective exponent
+  slightly INCREASES (not decreases). **Honest negative on hypothesis:** clonal
+  expansion alone does NOT explain the driver-count discrepancy (why tumours have
+  more drivers than age-incidence suggests). Strong selection (s≥0.02) needed to
+  depress the exponent — unrealistic. Other mechanisms implicated (tissue
+  architecture, heterogeneous rates, non-ordered accumulation). Script:
+  `simulations/multistage_fitness_expansion.py`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -141,8 +151,16 @@ _(none yet — open hypotheses under review will be linked here)_
   reversion). Connects the multistage clonal-evolution framework (birth-death
   process) with the SL thread (BRCA-PARP pair). **Q13 closed:** phase transition
   at u·N0~1; MRD explains long PFS; effective killing paradox identified.
-  Next open: Q14 (fitness-effect multistage); could also extend to
-  multi-mechanism resistance or immune escape dynamics.
+  Next open: could extend to multi-mechanism resistance or immune escape dynamics.
+
+- **Fitness-effect multistage thread.** Question 14 (driver-specific fitness
+  effects / clonal expansion). Extends Armitage-Doll with selective advantage per
+  hit. **Q14 closed (honest negative on hypothesis):** realistic s≈0.004
+  accelerates onset by only 10-14% without depressing the age-incidence exponent;
+  clonal expansion alone CANNOT explain why observed driver counts exceed
+  inferences from age-incidence fitting. Other mechanisms needed (tissue
+  architecture, heterogeneous rates, non-ordered accumulation). Opens new
+  questions about which mechanisms DO explain the discrepancy.
 
 ## System changes
 
