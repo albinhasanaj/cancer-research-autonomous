@@ -20,6 +20,13 @@ permitted; small CSVs may be committed if a downstream iteration needs them).
   on a grid of `x=μt`, showing `s_k→k−1` as `x→0`. Produces
   `output/erlang_local_slope_{curve,at_window}.csv`. Both feed finding note
   [[2026-05-30_age_incidence_power_law]].
+- `cellpool_frailty_incidence.py` — item 4 cell-pool + frailty extension.
+  Individual = tissue of `N_cells` i.i.d. cells (onset = min over cells, so
+  `h_tissue = N·h_cell`); mixes `μ ~ Gamma(cv)` across individuals and computes
+  the survival-weighted population hazard by exact quadrature, validated by a
+  genuine cell-level Monte Carlo (~4% agreement). Produces
+  `output/cellpool_frailty_{hazard,summary}.csv`. Finding note:
+  [[2026-05-30-cellpool-frailty-old-age-incidence-deceleration]].
 
 ## Conventions
 

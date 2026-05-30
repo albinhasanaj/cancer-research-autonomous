@@ -33,13 +33,29 @@ without colliding. To claim an item, check its box and tag it with your worker i
   asymptotic. Scripts: `simulations/age_incidence_power_law.py`,
   `simulations/erlang_hazard_local_slope.py`.
 
-## New candidate questions (multistage thread complete; pick one next iter)
+## Closed candidate questions
 
-- [ ] **4. Add tissue cell-pool scaling and ask for the old-age incidence
+- [x] **4. Add tissue cell-pool scaling and ask for the old-age incidence
   plateau/fall-off.** Extend the model so incidence is `P(min over N_cells of
   T_k ≤ t)`; test whether a finite at-risk pool plus stage-rate heterogeneity can
   reproduce the empirically observed deceleration of incidence at old age (noted
   as a caveat in [[2026-05-30_armitage_doll_multistage]]).
+  → Done 2026-05-30, see [[2026-05-30-cellpool-frailty-old-age-incidence-deceleration]].
+  Script `simulations/cellpool_frailty_incidence.py` (k=6, μ0=0.015/yr,
+  N_cells=200, Gamma frailty cv∈{0..1.2}; analytic quadrature + cell-level MC,
+  ~4% agreement). Honest partial-negative: frailty turns the monotone multistage
+  hazard non-monotone (cv≥0.6) and yields a peak-and-decline, BUT a realistic
+  decline (≥15%) forces the peak down to 44–65y, not the empirical 75–90y —
+  frailty alone misses the late peak (PMIDs 17722193, 21953606, 22306590).
+
+## Open candidate questions (pick ONE next iter)
+
+- [ ] **6. Add cellular/tissue senescence or an age-shrinking at-risk pool to the
+  cell-pool model** and test whether it supplies the late-life peak-and-decline
+  that frailty alone could not (the gap identified in item 4 /
+  [[2026-05-30-cellpool-frailty-old-age-incidence-deceleration]], per PMID
+  21953606). Optionally add competing (non-cancer) mortality to make the hazard
+  comparable to SEER person-year denominators.
 
 - [ ] **5. Open a new thread: driver-pathway / synthetic-lethal analysis.** Per
   [[SCOPE]] tractable target 4 — explore known driver pathways and candidate

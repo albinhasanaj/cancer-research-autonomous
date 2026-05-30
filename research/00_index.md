@@ -22,6 +22,15 @@ This is the map of the research vault. Every iteration updates it.
   slope `s_k(x)=(k−1)−x·A_{k−1}/A_k → k−1` as `x→0` confirms the asymptotic.
   Scripts: `simulations/age_incidence_power_law.py`,
   `simulations/erlang_hazard_local_slope.py`.
+- [[2026-05-30-cellpool-frailty-old-age-incidence-deceleration]] — cell-pool +
+  inter-individual frailty extension (item 4). Individual = tissue of `N_cells`
+  i.i.d. cells (onset = min), so `h_tissue = N·h_cell`; mixing `μ ~ Gamma(cv)`
+  across individuals. **Honest partial-negative:** frailty makes the population
+  hazard non-monotone (`cv ≥ 0.6`) and yields a peak-and-decline, but a realistic
+  decline (`≥15%`) forces the peak to 44–65y, not the empirical 75–90y — frailty
+  alone misses the late peak (so senescence / pool-shrinkage likely needed, PMID
+  21953606). Analytic quadrature + cell-level MC agree to ~4%. Script:
+  `simulations/cellpool_frailty_incidence.py`.
 
 ## Literature notes
 
@@ -35,13 +44,15 @@ _(none yet — open hypotheses under review will be linked here)_
 
 ## Thread map
 
-- **Multistage carcinogenesis thread.** Question 1 (literature, this iter) →
-  Question 2 (Monte Carlo of `k`-hit time-to-malignancy) → Question 3
-  (compare simulated age-incidence to `t^(k−1)` power law). **All three closed.**
-  Thread conclusion: the multistage age-incidence power law is asymptotic
-  (`μt→0`); finite cohorts show a lower effective exponent. Next directions are
-  open (e.g. add the old-age plateau / cell-pool scaling, or move to a new
-  thread such as synthetic-lethal analysis).
+- **Multistage carcinogenesis thread.** Question 1 (literature) → Question 2
+  (Monte Carlo of `k`-hit time-to-malignancy) → Question 3 (compare simulated
+  age-incidence to `t^(k−1)` power law) → Question 4 (cell-pool + frailty vs the
+  old-age incidence deceleration). Q1–3 closed (power law is asymptotic). Q4
+  closed: frailty reproduces old-age *deceleration* but **not** the empirical
+  late-life *peak-and-decline* on its own — a realistic decline needs an
+  unrealistically early peak, so senescence / pool-shrinkage is implicated.
+  Next open: Q6 (add senescence / shrinking pool / competing risks) continues
+  this thread; Q5 (synthetic-lethal) opens an independent thread.
 
 ## System changes
 
