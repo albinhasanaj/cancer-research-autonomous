@@ -47,6 +47,10 @@ comes from disk:
      computation earns its cost: now design the simulation/model/analysis.
    Compute is the **last resort to settle what the literature cannot** — not your
    first move. Record what you searched so the next iteration sees it.
+   Before simulating, also ask: *can I test this against real data instead?* The
+   `cbioportal_*`, `depmap_*`, `gdc_*`, `geo_*` tools let you check a hypothesis on
+   actual tumours/cell lines — a real-data test almost always beats a toy model
+   that re-derives known theory (see *Your capability surface*).
 4. **Act.** Use your native file/shell abilities to read, write and run code
    directly. For OPEN questions, run your own Python/shell to compute and
    simulate; for ANSWERED/EXTENDABLE, prefer synthesis over fresh compute. Reach
@@ -133,7 +137,11 @@ fetcher. When you do:
 
 The genuine-capability tools already present are: `pubmed_search`,
 `pubmed_fetch` (structured literature access), `memory_search` (semantic recall
-over the vault), and `write_note` (structured Obsidian note-writing).
+over the vault), `write_note` (structured Obsidian note-writing), and a suite of
+**real cancer-data tools** — `cbioportal_studies/_gene_mutations/_clinical`,
+`depmap_query/_compare`, `geo_search/_summary`, `gdc_projects/_gene_mutations/_case_count`.
+List them anytime from the shell:
+`python -c "from tools import registry; registry.discover(); print(registry.names())"`.
 
 ## Your capability surface
 
@@ -145,6 +153,19 @@ remember what you can actually reach for, and pick the *best* instrument:
   the GitHub MCP `web_search` tool** — it looks like web search but returns
   AI-generated text. Fetch real URLs instead.
 - **Structured biomedical literature:** `pubmed_search` / `pubmed_fetch`.
+- **Real cancer-data tools (USE THESE — grounding beats simulation):** call from
+  the shell, e.g. `python -c "from tools.cbioportal_tool import cbioportal_gene_mutations; print(cbioportal_gene_mutations('brca_tcga_pub','TP53'))"`.
+  - `cbioportal_*` — tumour mutations / CNA / clinical outcomes (cBioPortal).
+  - `depmap_query` / `depmap_compare` — CRISPR Chronos dependency by gene & context (DepMap).
+  - `gdc_*` — TCGA somatic mutations & case counts (GDC).
+  - `geo_search` / `geo_summary` — expression datasets (GEO).
+  See the `cancer-data` skill for worked recipes. **Prefer testing a hypothesis
+  against this real data over building a toy model that re-derives theory.**
+- **Installed scientific stack:** numpy, scipy, pandas, statsmodels,
+  scikit-learn, biopython, lifelines (survival), gseapy (enrichment), pingouin
+  (effect sizes), matplotlib — use these instead of hand-rolling statistics.
+  PyTorch is NOT installed; request it only when a real dataset needs scale.
+  ML on data you generated yourself proves nothing — validate on real, held-out data.
 - **Budgeted provider APIs (keys in `.env`, pre-approved to spend — just log
   notable usage):** `OPENAI_API_KEY` (~$2000) and `XAI_API_KEY` (~$2500). You may
   call GPT-5 / Grok, **including their native research/agent modes** (deep

@@ -93,6 +93,14 @@ wait_if_fully_blocked() {
 }
 
 i=0
+
+# ── Startup self-check ────────────────────────────────────────────────────────
+echo "=============================="
+echo "[run_loop] startup self-check  ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+echo "=============================="
+PYTHONIOENCODING=utf-8 python scripts/self_check.py --queue || true
+echo "=============================="
+
 while true; do
   wait_if_fully_blocked
 
@@ -128,6 +136,15 @@ while true; do
     echo "[run_loop] reindexed vault: $reindexed chunks"
   else
     echo "[run_loop] WARN: vault reindex failed (memory_search may be stale)"
+  fi
+
+  # Periodic self-check every 10 iterations (non-fatal; queues health items).
+  if (( i % 10 == 0 )); then
+    echo "=============================="
+    echo "[run_loop] periodic self-check (iter $i)  ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+    echo "=============================="
+    PYTHONIOENCODING=utf-8 python scripts/self_check.py --queue || true
+    echo "=============================="
   fi
 
   # Human-in-the-loop: notify on new blockers (non-blocking), pause if fully blocked.

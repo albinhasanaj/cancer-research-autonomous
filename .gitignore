@@ -29,3 +29,5 @@ scratch/_smoke.py
 .notified
 .all-blocked
 NEEDS_HUMAN.log
+
+code-reference/

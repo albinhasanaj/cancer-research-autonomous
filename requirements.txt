@@ -1,4 +1,17 @@
+# --- LLM / literature access ---
 anthropic
 openai
 chromadb
 pyyaml
+
+# --- Scientific compute stack ---
+numpy
+scipy
+pandas
+statsmodels
+scikit-learn
+biopython
+lifelines
+gseapy
+pingouin
+matplotlib
