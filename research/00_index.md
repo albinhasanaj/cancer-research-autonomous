@@ -156,6 +156,14 @@ This is the map of the research vault. Every iteration updates it.
   TP53/ATM–DDR, RB1–mitotic kinases) + KRAS combinations. Grounded in 8 PMIDs.
   Opens the synthetic-lethal computational thread (items 7, 8).
 
+- [[2026-05-30-immunoediting-driver-accumulation]] — Immunoediting and driver
+  accumulation (item 21). Pre-malignant k-hit model with immune negative selection
+  (α × n_neo elimination rate + stochastic escape). **Honest partial-negative on
+  hypothesis:** immunoediting is a POPULATION FILTER (80% of lineages eliminated at
+  α=0.1), NOT a rate limiter (delay <13%). Successful tumours escape early (78–85%
+  via HLA-LOH) then accumulate neutrally. Neoantigen depletion ~20% confirmed
+  (Lakatos 2020). Script: `simulations/immunoediting_driver_accumulation.py`.
+
 ## Active hypotheses
 
 _(none yet — open hypotheses under review will be linked here)_

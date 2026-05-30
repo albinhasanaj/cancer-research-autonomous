@@ -240,12 +240,32 @@ Re-derivations are warm-ups, not the goal.
   N ~ K AND r_S_off > r_E. Predictive criterion: benefit ∝ (N₀/K) ×
   (r_S_off − r_E)/r_E. Script: `simulations/adaptive_immune_checkpoint.py`.
 
-- [ ] **21. Neoantigen dynamics during clonal evolution: does immunoediting
+- [x] **21. Neoantigen dynamics during clonal evolution: does immunoediting
   shape the driver accumulation rate?** Extend the multistage model so immune
   selection removes immunogenic drivers (negative selection on neoantigens per
   Lakatos 2020). How does this change the effective mutation rate and time-to-
   malignancy? Could explain why some cancers accumulate fewer drivers than
   expected.
+  → Done 2026-05-30, see [[2026-05-30-immunoediting-driver-accumulation]].
+  Triage: EXTENDABLE (Lakatos 2020 PMID 32929288 + Rosenthal 2019 PMID 30894752).
+  **Honest partial-negative on hypothesis:** immunoediting acts as a POPULATION
+  FILTER (80% lineages eliminated at α=0.1, p_neo=0.5) NOT a rate limiter
+  (delay factor only 1.05–1.13). Successful tumours escape early (78–85% via
+  HLA-LOH) then accumulate remaining drivers neutrally. Neoantigen depletion
+  ~20% confirmed. Script: `simulations/immunoediting_driver_accumulation.py`.
+
+- [ ] **22. Unified evolutionary escape framework: analytic treatment across
+  therapy types.** The simulations have now shown the same u·N·(selection ratio)~1
+  phase transition in PARPi resistance (item 13), immune escape (item 19), and
+  pre-malignant immunoediting (item 21). Derive a single analytic framework
+  (multi-type branching process) that unifies these and predicts the critical
+  population size for any targeted/immune therapy from first principles.
+
+- [ ] **23. Tissue architecture and spatial immunoediting.** The pre-malignant
+  immunoediting model (item 21) assumes well-mixed clones. In reality, tissue
+  architecture (crypts, lobules) creates spatial refugia where small clones may
+  evade immune surveillance. Does spatial structure change the population-filter
+  vs rate-limiter conclusion? Agent-based spatial model on a tissue lattice.
 
 - [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-
