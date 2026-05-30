@@ -183,11 +183,31 @@ Re-derivations are warm-ups, not the goal.
   in the 45–80yr epidemiological window. Script:
   `simulations/multistage_heterogeneous_rates.py`.
 
-- [ ] **16. Multi-mechanism PARPi resistance (reversion + efflux + shielding).**
+- [x] **16. Multi-mechanism PARPi resistance (reversion + efflux + shielding).**
   Extend the single-mechanism resistance model (item 13) to include 3 parallel
   resistance routes (BRCA reversion, drug efflux, replication fork protection).
   How does the diversity of escape routes change the phase transition threshold
   and time-to-resistance? Connects to clinical combination strategies.
+  → Done 2026-05-30, see [[2026-05-30-parp-multi-mechanism-resistance]]. Triage:
+  EXTENDABLE (Iwasa multi-type framework known; delta = PARPi-specific 3-route
+  parameterization + regime analysis). **Key findings:** (1) u_eff = 1.6e-7 (16×
+  reversion alone) shrinks MRD safe zone N0_crit from 1e8 → 6e6; (2) regime
+  switch — reversion dominates in bulk (fastest growth 0.05/d) vs efflux
+  dominates in MRD (highest supply u=1e-7); (3) blocking efflux alone halves
+  P(R) from 29% → 12% at N0=1e7. Script:
+  `simulations/parp_multi_mechanism_resistance.py`.
+
+- [ ] **18. Adaptive therapy scheduling for PARPi resistance delay.** Model
+  intermittent dosing (drug holidays) where sensitive cells partially recover,
+  suppressing resistant clones via competition. Determine optimal on/off schedule
+  that maximises time-to-progression. Extends items 13+16. Purely computational
+  (game-theoretic / ODE + stochastic).
+
+- [ ] **19. Immune escape dynamics in the clonal evolution framework.** Model
+  tumour–immune coevolution where immune editing applies selection against
+  immunogenic clones. How does neoantigen load (correlated with driver count)
+  interact with immune checkpoint therapy? Connects multistage + resistance
+  threads to immunotherapy. Purely computational.
 
 - [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-

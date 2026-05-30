@@ -1,0 +1,6 @@
+strategy,u_eff,frac_resist,median_months
+all_3_open,1.6e-07,0.294,11.7
+block_efflux,6e-08,0.122,10.0
+block_fork_prot,1.0999999999999999e-07,0.274,11.5
+block_efflux+fork,1e-08,0.122,10.0
+block_all_but_efflux,1e-07,0.206,12.0

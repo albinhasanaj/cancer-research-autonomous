@@ -88,6 +88,13 @@ This is the map of the research vault. Every iteration updates it.
   disease putting patients below the transition. "Paradox of effective killing":
   stronger drug → less mutation supply → delayed resistance in MRD. Script:
   `simulations/parp_resistance_dynamics.py`.
+- [[2026-05-30-parp-multi-mechanism-resistance]] — Multi-mechanism PARPi
+  resistance extension (item 16). 3 parallel escape routes (BRCA reversion u=1e-8,
+  ABCB1 efflux u=1e-7, fork protection u=5e-8). **Key findings:** (1) MRD safe
+  zone shrinks 16× (N0_crit from 1e8 → 6e6); (2) regime-switching: reversion
+  dominates in bulk (fastest growth) but efflux dominates in MRD (highest supply
+  rate); (3) blocking efflux alone halves P(resistance) from 29% → 12% at N0=1e7.
+  Script: `simulations/parp_multi_mechanism_resistance.py`.
 
 - [[2026-05-30-fitness-effect-multistage]] — Multi-hit model with driver fitness
   effects (item 14). Extends k-hit with clonal expansion (s per driver). At
@@ -164,10 +171,13 @@ _(none yet — open hypotheses under review will be linked here)_
   needed (data-driven or quantitative modelling).
 
 - **Resistance dynamics thread.** Question 13 (PARPi resistance via BRCA
-  reversion). Connects the multistage clonal-evolution framework (birth-death
-  process) with the SL thread (BRCA-PARP pair). **Q13 closed:** phase transition
-  at u·N0~1; MRD explains long PFS; effective killing paradox identified.
-  Next open: could extend to multi-mechanism resistance or immune escape dynamics.
+  reversion) → Question 16 (multi-mechanism extension). Connects the multistage
+  clonal-evolution framework (birth-death process) with the SL thread (BRCA-PARP
+  pair). **Q13 closed:** phase transition at u·N0~1; MRD explains long PFS;
+  effective killing paradox identified. **Q16 closed:** 3 parallel routes shift
+  N0_crit 16× lower; regime-switching (growth vs supply dominance); ABCB1 efflux
+  is the critical blocking target. Thread complete for PARPi resistance framework.
+  Next open: adaptive therapy scheduling or immune escape dynamics.
 
 - **Fitness-effect multistage thread.** Question 14 (driver-specific fitness
   effects / clonal expansion). Extends Armitage-Doll with selective advantage per

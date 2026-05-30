@@ -1,0 +1,6 @@
+log10_N0,u_N0_single,u_N0_multi,frac_resist_single,frac_resist_multi,median_months_single,median_months_multi
+5,0.001,0.016,0.0,0.0,nan,nan
+6,0.01,0.16,0.008,0.018,8.9,11.7
+7,0.1,1.6,0.104,0.29,9.9,11.6
+8,1.0,16.0,0.734,1.0,9.4,9.7
+9,10.0,160.0,1.0,1.0,7.8,7.8

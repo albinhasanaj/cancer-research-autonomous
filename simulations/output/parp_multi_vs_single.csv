@@ -1,0 +1,5 @@
+config,u_eff,analytic_months,sim_median_months,frac_resist
+single_reversion,1e-08,9.1,7.8,1.0
+single_efflux,1e-07,13.0,8.5,1.0
+single_fork_protection,5e-08,15.1,10.6,1.0
+multi_all_3,1.6e-07,13.2,7.7,1.0
