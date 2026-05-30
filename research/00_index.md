@@ -31,6 +31,14 @@ This is the map of the research vault. Every iteration updates it.
   alone misses the late peak (so senescence / pool-shrinkage likely needed, PMID
   21953606). Analytic quadrature + cell-level MC agree to ~4%. Script:
   `simulations/cellpool_frailty_incidence.py`.
+- [[2026-05-30-senescence-shrinking-pool-late-peak]] — senescence / shrinking
+  at-risk pool extension (item 6). N(t) = N₀·exp(−λ_s·max(0, t−50)); tissue
+  hazard h_tissue = N(t)·h_cell declines as the pool empties. **Positive result:**
+  λ_s ≈ 0.035–0.042/yr (+ optional mild frailty cv ≤ 0.3) places the peak at
+  71–91y with 19–42% decline — matching the empirical SEER pattern (PMID 21953606).
+  Competing mortality has negligible effect. The shrinking pool is the **minimum
+  sufficient extension** for the late-life peak-and-decline. Script:
+  `simulations/cellpool_senescence_incidence.py`.
 
 ## Literature notes
 
@@ -47,12 +55,13 @@ _(none yet — open hypotheses under review will be linked here)_
 - **Multistage carcinogenesis thread.** Question 1 (literature) → Question 2
   (Monte Carlo of `k`-hit time-to-malignancy) → Question 3 (compare simulated
   age-incidence to `t^(k−1)` power law) → Question 4 (cell-pool + frailty vs the
-  old-age incidence deceleration). Q1–3 closed (power law is asymptotic). Q4
-  closed: frailty reproduces old-age *deceleration* but **not** the empirical
-  late-life *peak-and-decline* on its own — a realistic decline needs an
-  unrealistically early peak, so senescence / pool-shrinkage is implicated.
-  Next open: Q6 (add senescence / shrinking pool / competing risks) continues
-  this thread; Q5 (synthetic-lethal) opens an independent thread.
+  old-age incidence deceleration) → Question 6 (senescence / shrinking pool).
+  Q1–3 closed (power law is asymptotic). Q4 closed: frailty alone misses the
+  late peak. **Q6 closed:** age-shrinking pool (λ_s ≈ 0.035–0.042/yr after age
+  50) IS the minimum sufficient mechanism for the empirical late-life
+  peak-and-decline (peak 71–91y, decline 19–42%); competing mortality negligible.
+  Thread complete for the basic multistage framework. Next open: Q5
+  (synthetic-lethal) opens an independent thread.
 
 ## System changes
 

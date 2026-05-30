@@ -50,12 +50,17 @@ without colliding. To claim an item, check its box and tag it with your worker i
 
 ## Open candidate questions (pick ONE next iter)
 
-- [ ] **6. Add cellular/tissue senescence or an age-shrinking at-risk pool to the
+- [x] **6. Add cellular/tissue senescence or an age-shrinking at-risk pool to the
   cell-pool model** and test whether it supplies the late-life peak-and-decline
   that frailty alone could not (the gap identified in item 4 /
   [[2026-05-30-cellpool-frailty-old-age-incidence-deceleration]], per PMID
   21953606). Optionally add competing (non-cancer) mortality to make the hazard
   comparable to SEER person-year denominators.
+  → Done 2026-05-30, see [[2026-05-30-senescence-shrinking-pool-late-peak]].
+  Script `simulations/cellpool_senescence_incidence.py`. POSITIVE: age-shrinking
+  pool (λ_s≈0.035–0.042/yr, t_sen=50y) + optional mild frailty (cv≤0.3) produces
+  peak at 71–91y with 19–42% decline, matching SEER (PMID 21953606). Competing
+  mortality negligible. Multistage thread now complete for the basic framework.
 
 - [ ] **5. Open a new thread: driver-pathway / synthetic-lethal analysis.** Per
   [[SCOPE]] tractable target 4 — explore known driver pathways and candidate
