@@ -52,6 +52,13 @@ This is the map of the research vault. Every iteration updates it.
   2 novel predictions (BRCA+WRN). Script: `simulations/boolean_sl_network.py`;
   output: `simulations/output/boolean_sl_pairs.csv`.
 
+- [[2026-05-30-tcga-codeletion-brca-wrn]] — TCGA co-deletion counter-selection
+  test for BRCA+WRN (item 9). Queried cBioPortal (UCEC, OV, COADREAD);
+  **honest partial-negative:** MSI-H contexts show co-occurrence (hypermutation
+  confound); ovarian trends toward ME (OR=0.69) but underpowered; controls
+  validate methodology. Needs MSI stratification. Script:
+  `simulations/tcga_codeletion_counterselection.py`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -80,12 +87,15 @@ _(none yet — open hypotheses under review will be linked here)_
   (synthetic-lethal) opens an independent thread.
 - **Synthetic-lethal thread.** Question 5 (literature survey of SL principles
   and key pairs) → Question 7 (bipartite driver↔target network + centrality) →
-  Question 8 (Boolean network SL simulation). Q5 closed: 5 SL pairs surveyed,
-  grounded in 8 PMIDs. **Q7 closed:** bipartite network built; ATR/CHK1/WEE1
-  top coverage (57%), PARP1 highest degree (3 contexts). **Q8 closed:** 14-node
-  Boolean DDR model recovers 9/9 known SL pairs from topology; 2 novel
-  predictions (BRCA+WRN). Next open: Q9 (co-deletion counter-selection), Q10
-  (stochastic extension).
+  Question 8 (Boolean network SL simulation) → Question 9 (TCGA co-deletion
+  counter-selection). Q5 closed: 5 SL pairs surveyed, grounded in 8 PMIDs.
+  **Q7 closed:** bipartite network built; ATR/CHK1/WEE1 top coverage (57%),
+  PARP1 highest degree (3 contexts). **Q8 closed:** 14-node Boolean DDR model
+  recovers 9/9 known SL pairs from topology; 2 novel predictions (BRCA+WRN).
+  **Q9 closed (partial-negative):** naive co-deletion test confounded by
+  MSI-driven co-occurrence; ovarian trends ME but underpowered; MSI
+  stratification needed. Next open: Q10 (stochastic extension), Q11
+  (MSI-stratified/DepMap validation).
 
 ## System changes
 

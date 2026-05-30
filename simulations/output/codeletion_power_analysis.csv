@@ -1,0 +1,5 @@
+gene_a,gene_b,label,freq_a,freq_b,N_samples,expected_co_alt,p_if_complete_ME,p_if_independence,p_if_partial_ME,detectable
+BRCA1,WRN,SL_prediction,0.03,0.02,10000,6.0,2.1245e-03,6.0637e-01,5.7547e-02,yes
+BRCA2,WRN,SL_prediction,0.03,0.02,10000,6.0,2.1245e-03,6.0637e-01,5.7547e-02,yes
+KRAS,BRAF,positive_control_ME,0.25,0.08,10000,200.0,1.2963e-105,5.1935e-01,5.3622e-36,yes
+TP53,KRAS,negative_control,0.5,0.25,10000,1250.0,0.0000e+00,5.0921e-01,0.0000e+00,yes

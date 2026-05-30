@@ -1,0 +1,13 @@
+gene_a,gene_b,n_samples,n_a_altered,n_b_altered,observed_both,expected_both,odds_ratio,p_value_ME,interpretation,study,context
+BRCA1,WRN,529,47,64,27,5.69,16.2365,1.0000e+00,co_occurrence,ucec_tcga_pan_can_atlas_2018,UCEC (high MSI prevalence)
+BRCA2,WRN,529,80,64,37,9.68,13.4488,1.0000e+00,co_occurrence,ucec_tcga_pan_can_atlas_2018,UCEC (high MSI prevalence)
+KRAS,BRAF,529,99,25,8,4.68,2.1357,9.7149e-01,co_occurrence,ucec_tcga_pan_can_atlas_2018,UCEC (high MSI prevalence)
+TP53,KRAS,529,194,99,16,36.31,0.2729,7.9285e-07,mutual_exclusivity,ucec_tcga_pan_can_atlas_2018,UCEC (high MSI prevalence)
+BRCA1,WRN,585,25,33,1,1.41,0.6875,5.8148e-01,not_significant,ov_tcga_pan_can_atlas_2018,"Ovarian (BRCA-relevant, low MSI)"
+BRCA2,WRN,585,20,33,1,1.13,0.8766,6.8698e-01,not_significant,ov_tcga_pan_can_atlas_2018,"Ovarian (BRCA-relevant, low MSI)"
+KRAS,BRAF,585,6,3,0,0.03,0.0,9.6949e-01,not_significant,ov_tcga_pan_can_atlas_2018,"Ovarian (BRCA-relevant, low MSI)"
+TP53,KRAS,585,375,6,2,3.85,0.2761,1.2624e-01,not_significant,ov_tcga_pan_can_atlas_2018,"Ovarian (BRCA-relevant, low MSI)"
+BRCA1,WRN,594,16,40,5,1.08,7.0519,9.9969e-01,co_occurrence,coadread_tcga_pan_can_atlas_2018,Colorectal (mixed MSI)
+BRCA2,WRN,594,39,40,6,2.63,2.7861,9.8874e-01,co_occurrence,coadread_tcga_pan_can_atlas_2018,Colorectal (mixed MSI)
+KRAS,BRAF,594,219,62,6,22.86,0.1605,3.9644e-07,mutual_exclusivity,coadread_tcga_pan_can_atlas_2018,Colorectal (mixed MSI)
+TP53,KRAS,594,315,219,126,116.14,1.3333,9.6144e-01,co_occurrence,coadread_tcga_pan_can_atlas_2018,Colorectal (mixed MSI)

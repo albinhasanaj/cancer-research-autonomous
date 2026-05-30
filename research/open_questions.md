@@ -93,12 +93,24 @@ without colliding. To claim an item, check its box and tag it with your worker i
 
 ## Open candidate questions (next threads)
 
-- [ ] **9. TCGA co-deletion counter-selection test for BRCA+WRN.** The Boolean
+- [x] **9. TCGA co-deletion counter-selection test for BRCA+WRN.** The Boolean
   model predicts BRCA+WRN SL. If true, TCGA tumours should show
   counter-selection (fewer co-deletions than expected by chance). Testable
   purely computationally from public TCGA mutation matrices.
+  → Done 2026-05-30, see [[2026-05-30-tcga-codeletion-brca-wrn]]. Honest
+  partial-negative: MSI-high contexts show co-occurrence (hypermutation
+  confound); ovarian (low-MSI) trends toward ME (OR=0.69) but underpowered;
+  controls (KRAS+BRAF, TP53+KRAS ME) validate the methodology. Proper test
+  needs MSI stratification or TMB correction. Script:
+  `simulations/tcga_codeletion_counterselection.py`.
 
 - [ ] **10. Stochastic Boolean extension with noise/partial penetrance.** Make
   the Boolean network probabilistic (async update, noise on rules) and measure
   SL penetrance as a continuous score rather than binary. Compare rank order
   to clinical drug-sensitivity data.
+
+- [ ] **11. MSI-stratified co-deletion test or DepMap functional validation.**
+  Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-
+  stable) tumours only, OR use DepMap cell-line dependency data to test whether
+  WRN-dependent lines are enriched for BRCA loss. Follow-up to the confound
+  identified in item 9.
