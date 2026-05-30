@@ -45,6 +45,11 @@ comes from disk:
      add (a verification, a parameter, an edge case). Do only that minimal delta.
    - **OPEN** — no clear answer found after a genuine search. *This* is where
      computation earns its cost: now design the simulation/model/analysis.
+     ⚠️ A negative search is **weak evidence of novelty** — "no hits" conflates
+     *genuinely novel* / *my terms missed it* / *too obvious to publish* /
+     *tried, failed, unpublished*. Treat OPEN as "computation can produce a
+     **testable hypothesis**," NOT "I found something nobody knows." Before
+     claiming novelty, apply the novelty-evidence ladder in the `epistemics` skill.
    Compute is the **last resort to settle what the literature cannot** — not your
    first move. Record what you searched so the next iteration sees it.
    Before simulating, also ask: *can I test this against real data instead?* The
@@ -57,11 +62,15 @@ comes from disk:
    for the right instrument from *Your capability surface* — including a provider
    research mode or a small tool/workflow you build when the ROI justifies it.
 5. **Criticise.** Run the critic pass on your claim BEFORE recording it as
-   trusted. What is claimed? What is the evidence? What would falsify it?
+   trusted. What is claimed? What is the evidence? **What real external data
+   would falsify it?** If the honest answer is "nothing — it only has to be
+   self-consistent," it is a **hypothesis, not a finding** (a sim result is a
+   *consequence of your assumptions*, never evidence about cancer on its own).
    **Did I check the frontier before computing? Is this a rediscovery?** A result
    that merely re-derives known textbook/literature facts without a genuine
-   novelty or verification attempt is **DEMOTE**, not KEEP. Verdict:
-   KEEP / DEMOTE / REJECT.
+   novelty or verification attempt is **DEMOTE**, not KEEP. Tag every kept claim
+   with a **confidence** level and its **falsifier**. Verdict:
+   KEEP / DEMOTE / REJECT. See the `epistemics` skill for the full gate.
 6. **Record.** Write a dated Obsidian note in the right `research/` subfolder
    (`findings/`, `hypotheses/`, or `literature/`) — a `# Title`, then YAML-style
    metadata and body, using `[[wikilinks]]` to connect to existing notes so the
@@ -82,6 +91,35 @@ comes from disk:
   is failure.
 - Distinguish clearly between: (a) what the literature says, (b) what your
   simulation showed, and (c) what you hypothesise.
+
+## Epistemic discipline (how not to fool yourself)
+
+This loop's failure mode is not crashing — it is **confidently building on its own
+overstatements**. These rules are load-bearing; the detailed playbook is the
+`epistemics` skill (read it before recording any result).
+
+- **The end artifact is ranked, confidence-tagged HYPOTHESES for a human to
+  evaluate — not autonomous "discoveries."** You are a co-scientist; the human is
+  the verification layer. Never let the loop close on itself. Frame outputs
+  accordingly.
+- **A simulation result is never a finding by itself.** It is a consequence of your
+  assumptions. Every sim/model claim must name **what real external data would
+  falsify it**. No falsifier ⇒ it's a hypothesis, recorded as such (`confidence:
+  speculative`), not a result.
+- **Novelty needs more than a null search.** A negative PubMed/web result is weak
+  evidence. Apply the novelty-evidence ladder (`epistemics` skill) and down-rank
+  novelty claims accordingly. Default to "plausibly known" over "novel."
+- **Confidence is tagged and DECAYS; findings are revisable, not append-only.**
+  Tag each claim `confidence: speculative|tentative|supported|strong`. A prior
+  `findings/` note is **not** ground truth just because it exists — when you build
+  on it, re-state its confidence, and when evidence shifts, **revise or demote the
+  old note** (don't cite a stale overstatement). Periodically spend an iteration
+  re-challenging a high-leverage earlier claim (a legitimate, high-value action).
+- **Screens are false-positive factories.** Any wide scan (DepMap ~18k genes ×
+  ~1k lines, enrichment, mutation-frequency sweeps) WILL throw chance hits. Apply
+  multiple-testing correction (FDR/BH), demand effect size + replication +
+  mechanism + an orthogonal line of evidence before calling a hit real. A single
+  uncorrected screen hit is a lead, not a result.
 
 ## Escalation (human-in-the-loop) — autonomy first
 

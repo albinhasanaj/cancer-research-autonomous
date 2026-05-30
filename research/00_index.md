@@ -271,7 +271,25 @@ _(none yet — open hypotheses under review will be linked here)_
 
 ## System changes
 
-- 2026-05-30 — Adopted a **triage-first research strategy**: every iteration now
+- 2026-05-31 — **Epistemic guardrails (don't fool yourself).** Encoded the four
+  load-bearing critiques into the loop: (1) a simulation result is a *consequence
+  of assumptions*, not a finding — every sim now needs an external falsifier;
+  (2) a null PubMed search is weak novelty evidence (conflates novel / missed /
+  obvious / failed-and-unpublished) — OPEN means "computation can produce a
+  *testable hypothesis*," not "found something novel"; (3) compounding error —
+  findings are revisable and **confidence-tagged**, not an append-only log;
+  (4) screens (DepMap) are false-positive factories needing FDR + replication +
+  mechanism + orthogonal validation. Output framing locked in: **ranked,
+  confidence-tagged hypotheses for a human verifier; the agent is a co-scientist,
+  not an autonomous discoverer.** Changes: `AGENTS.md` (always-on "Epistemic
+  discipline" section + triage step 3 / critic step 5 tweaks); new
+  `.github/skills/epistemics/SKILL.md` (falsifiability gate, novelty-evidence
+  ladder, confidence ladder + decay/self-challenge protocol, multiple-testing
+  discipline); `memory/notes.py` `write_note` now writes `confidence:` (default
+  `speculative`) + `falsifier:` frontmatter for findings/hypotheses;
+  `research/SCOPE.md` "The output claim" section; `cancer-data` skill DepMap
+  FDR warning; `research/open_questions.md` new "Standing items" (A1 re-challenge
+  a prior finding, A2 falsifier sweep) to operationalize confidence decay.
   checks the frontier (native web search/fetch + PubMed, provider research modes
   when warranted) and classifies ANSWERED / EXTENDABLE / OPEN before computing;
   simulation is reserved for genuinely OPEN questions. Self-extension reframed as

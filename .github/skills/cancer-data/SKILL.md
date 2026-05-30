@@ -39,6 +39,15 @@ Chronos score: more negative = more essential; dependent if < -0.5. Use for:
 dependency between lineages/mutation backgrounds. First call per gene downloads +
 caches to `data/depmap/genes/` (git-ignored); later calls are instant.
 
+⚠️ **DepMap is a false-positive factory** (~18k genes × ~1k lines). A
+context-specific "dependency" will appear by chance constantly. Before believing a
+hit: correct for multiple testing (BH/FDR via `statsmodels.stats.multitest.
+multipletests` — report q-values + #tests), demand a real **effect size** (not
+just p), and require **replication + mechanism + orthogonal evidence**. A lone
+uncorrected hit is a *lead* (`confidence: speculative`), not a finding. The
+canonical SLs you already validate (WRN/MSI, PARP/BRCA) clear all these bars — see
+the `epistemics` skill.
+
 ### GDC / TCGA — somatic mutations & cohort sizes
 ```bash
 python -c "from tools.gdc_tool import gdc_projects; print(gdc_projects('TCGA'))"

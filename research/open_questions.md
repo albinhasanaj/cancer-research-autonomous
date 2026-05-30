@@ -4,6 +4,24 @@ Pick the **single** highest-value unchecked item per iteration. Keep items
 **independent** where possible so parallel workers can claim different ones
 without colliding. To claim an item, check its box and tag it with your worker id.
 
+## Standing items (recurring — never "done"; pick when ROI is high)
+
+- [ ] **A1. Re-challenge a high-leverage prior finding (confidence audit).**
+  Pick one load-bearing claim that later notes now cite as if it were fact —
+  especially the unified escape framework (item 22) and anything tagged
+  `confidence: supported`/`strong`. Try to **break it**: re-run with perturbed
+  assumptions, seek disconfirming real data (`cancer-data` skill), or check
+  whether a newer/missed paper contradicts it. Then **update the original note**
+  (re-tag `confidence`, add caveats, or set `status: demoted` + "superseded by")
+  — do not just write a new note. This counters the loop's compounding-error
+  failure mode (see `epistemics` skill). Log which claim you audited and the
+  outcome in `experiments/_log.md`.
+
+- [ ] **A2. Falsifier sweep.** Scan recent `findings/` for notes whose `falsifier`
+  field is empty or untested. For one such claim, either run its external test
+  (real data) and re-tag confidence by the result, or, if no falsifier exists,
+  down-tag it to `confidence: speculative` and reframe it as a hypothesis.
+
 **Before you compute, triage the frontier** (see `.github/skills/research-strategy`):
 search native web + PubMed (+ a provider research mode when warranted) to decide
 if the item is ANSWERED / EXTENDABLE / OPEN. Only OPEN questions justify a fresh

@@ -13,6 +13,15 @@ through computation and reasoning — never through physical experiment.
   (e.g. age-incidence curves, published parameter estimates).
 - Pathway / network / synthetic-lethal analysis using public knowledge.
 
+## The output claim (what this loop produces)
+
+The end artifact is **ranked, confidence-tagged hypotheses for a human to
+evaluate** — not autonomous discoveries. The agent is a **co-scientist**; the
+human is the verification layer (the same framing Google's AI co-scientist uses).
+"Sim output IS a finding about cancer" is out of bounds; "the agent proposes
+testable, falsifier-bearing hypotheses a human then checks" is the goal. See
+`.github/skills/epistemics`.
+
 ## Out of bounds
 
 - **No wet-lab protocols** of any kind.
