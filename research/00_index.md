@@ -46,6 +46,11 @@ This is the map of the research vault. Every iteration updates it.
   TP53+ATM); PARP1 highest degree (3 contexts, 31%). Script:
   `simulations/sl_bipartite_network.py`; output:
   `simulations/output/sl_network_{targets,drivers}.csv`.
+- [[2026-05-30-boolean-sl-network]] — Boolean DDR/cell-cycle network SL screen
+  (item 8). 14 nodes, 12 knockoutable; synchronous Boolean update under DNA
+  damage. 11 SL pairs from 66 double-KOs; **9/9 known pairs recovered (100%)**;
+  2 novel predictions (BRCA+WRN). Script: `simulations/boolean_sl_network.py`;
+  output: `simulations/output/boolean_sl_pairs.csv`.
 
 ## Literature notes
 
@@ -77,7 +82,10 @@ _(none yet — open hypotheses under review will be linked here)_
   and key pairs) → Question 7 (bipartite driver↔target network + centrality) →
   Question 8 (Boolean network SL simulation). Q5 closed: 5 SL pairs surveyed,
   grounded in 8 PMIDs. **Q7 closed:** bipartite network built; ATR/CHK1/WEE1
-  top coverage (57%), PARP1 highest degree (3 contexts). Q8 open.
+  top coverage (57%), PARP1 highest degree (3 contexts). **Q8 closed:** 14-node
+  Boolean DDR model recovers 9/9 known SL pairs from topology; 2 novel
+  predictions (BRCA+WRN). Next open: Q9 (co-deletion counter-selection), Q10
+  (stochastic extension).
 
 ## System changes
 

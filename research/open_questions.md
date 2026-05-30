@@ -82,7 +82,23 @@ without colliding. To claim an item, check its box and tag it with your worker i
   population coverage (57% via TP53+ATM); PARP1 highest degree (3 contexts,
   31%). Script: `simulations/sl_bipartite_network.py`.
 
-- [ ] **8. Boolean network SL simulation.** Construct a small Boolean network
+- [x] **8. Boolean network SL simulation.** Construct a small Boolean network
   of a canonical pathway (e.g. DDR or cell-cycle) and simulate single vs
   double knockouts to identify synthetic-lethal node pairs from topology alone.
   Compare to the known SL pairs from item 5.
+  → Done 2026-05-30, see [[2026-05-30-boolean-sl-network]]. 14-node DDR +
+  cell-cycle Boolean model; 66 double-KO combinations; 11 SL pairs found;
+  **9/9 known pairs recovered (100%)**; 2 novel predictions (BRCA+WRN).
+  Script: `simulations/boolean_sl_network.py`.
+
+## Open candidate questions (next threads)
+
+- [ ] **9. TCGA co-deletion counter-selection test for BRCA+WRN.** The Boolean
+  model predicts BRCA+WRN SL. If true, TCGA tumours should show
+  counter-selection (fewer co-deletions than expected by chance). Testable
+  purely computationally from public TCGA mutation matrices.
+
+- [ ] **10. Stochastic Boolean extension with noise/partial penetrance.** Make
+  the Boolean network probabilistic (async update, noise on rules) and measure
+  SL penetrance as a continuous score rather than binary. Compare rank order
+  to clinical drug-sensitivity data.
