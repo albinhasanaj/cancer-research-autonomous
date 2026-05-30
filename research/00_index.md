@@ -95,6 +95,13 @@ This is the map of the research vault. Every iteration updates it.
   dominates in bulk (fastest growth) but efflux dominates in MRD (highest supply
   rate); (3) blocking efflux alone halves P(resistance) from 29% → 12% at N0=1e7.
   Script: `simulations/parp_multi_mechanism_resistance.py`.
+- [[2026-05-30-adaptive-therapy-parp-scheduling]] — Adaptive therapy scheduling
+  for PARPi resistance delay (item 18). Lotka-Volterra competition, 30+ schedules.
+  **Honest negative:** marginal benefit (6–9%) because PARPi MRD operates at
+  N << K (negligible competition) with low fitness cost of resistance. Gatenby
+  mechanism ineffective in this regime. Continuous dosing near-optimal; mutation
+  supply reduction (ABCB1 blocking) more promising than scheduling. Script:
+  `simulations/adaptive_therapy_parp.py`.
 
 - [[2026-05-30-fitness-effect-multistage]] — Multi-hit model with driver fitness
   effects (item 14). Extends k-hit with clonal expansion (s per driver). At
@@ -171,13 +178,17 @@ _(none yet — open hypotheses under review will be linked here)_
   needed (data-driven or quantitative modelling).
 
 - **Resistance dynamics thread.** Question 13 (PARPi resistance via BRCA
-  reversion) → Question 16 (multi-mechanism extension). Connects the multistage
-  clonal-evolution framework (birth-death process) with the SL thread (BRCA-PARP
-  pair). **Q13 closed:** phase transition at u·N0~1; MRD explains long PFS;
-  effective killing paradox identified. **Q16 closed:** 3 parallel routes shift
-  N0_crit 16× lower; regime-switching (growth vs supply dominance); ABCB1 efflux
-  is the critical blocking target. Thread complete for PARPi resistance framework.
-  Next open: adaptive therapy scheduling or immune escape dynamics.
+  reversion) → Question 16 (multi-mechanism extension) → Question 18 (adaptive
+  therapy scheduling). Connects the multistage clonal-evolution framework
+  (birth-death process) with the SL thread (BRCA-PARP pair). **Q13 closed:**
+  phase transition at u·N0~1; MRD explains long PFS; effective killing paradox
+  identified. **Q16 closed:** 3 parallel routes shift N0_crit 16× lower;
+  regime-switching (growth vs supply dominance); ABCB1 efflux is the critical
+  blocking target. **Q18 closed (honest negative):** adaptive therapy (Gatenby
+  Lotka-Volterra) provides only marginal benefit (6–9%) for PARPi MRD because
+  N << K (negligible competition) and fitness cost of reversion is low;
+  continuous dosing near-optimal; mutation supply reduction more promising.
+  Thread complete for PARPi resistance.
 
 - **Fitness-effect multistage thread.** Question 14 (driver-specific fitness
   effects / clonal expansion). Extends Armitage-Doll with selective advantage per

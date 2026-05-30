@@ -50,7 +50,11 @@ fi
 
 # Assemble copilot flags. --allow-all = tools + paths + urls (full autonomy,
 # required for unattended non-interactive runs). --no-color keeps logs clean.
-COPILOT_ARGS=(--prompt "$PROMPT" --allow-all --no-color)
+# --disable-builtin-mcps removes the built-in github-mcp-server, whose
+# `web_search` tool returns AI-generated summaries (not real results) and was
+# corrupting the agent's literature triage. The agent must use pubmed_search /
+# pubmed_fetch and native web fetch on real URLs instead (see AGENTS.md).
+COPILOT_ARGS=(--prompt "$PROMPT" --allow-all --no-color --disable-builtin-mcps)
 if [ -n "${COPILOT_MODEL:-}" ]; then
   COPILOT_ARGS+=(--model "$COPILOT_MODEL")
 fi

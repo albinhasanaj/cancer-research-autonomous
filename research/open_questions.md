@@ -197,11 +197,16 @@ Re-derivations are warm-ups, not the goal.
   P(R) from 29% → 12% at N0=1e7. Script:
   `simulations/parp_multi_mechanism_resistance.py`.
 
-- [ ] **18. Adaptive therapy scheduling for PARPi resistance delay.** Model
+- [x] **18. Adaptive therapy scheduling for PARPi resistance delay.** Model
   intermittent dosing (drug holidays) where sensitive cells partially recover,
   suppressing resistant clones via competition. Determine optimal on/off schedule
   that maximises time-to-progression. Extends items 13+16. Purely computational
   (game-theoretic / ODE + stochastic).
+  → Done 2026-05-30, see [[2026-05-30-adaptive-therapy-parp-scheduling]]. Triage:
+  EXTENDABLE (Gatenby framework known; delta = PARPi multi-mechanism application).
+  **Honest negative:** marginal benefit (6–9%) because PARPi MRD (N₀=10⁷) is at
+  N << K; competition negligible; reversion fitness cost too low. Continuous dosing
+  near-optimal in this regime. Script: `simulations/adaptive_therapy_parp.py`.
 
 - [ ] **19. Immune escape dynamics in the clonal evolution framework.** Model
   tumour–immune coevolution where immune editing applies selection against
