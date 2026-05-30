@@ -30,11 +30,12 @@ NOTIFIED="$ROOT/.notified"
 PROMPT="Read AGENTS.md and do exactly one iteration of the protocol, then exit."
 
 # Export API keys from .env so Copilot's shell tools and any research code see
-# them (OPENAI_API_KEY, XAI_API_KEY, ...). .env is git-ignored.
+# them (OPENAI_API_KEY, XAI_API_KEY, ...). .env is git-ignored. The sed strips
+# trailing CR so a Windows/CRLF-edited .env doesn't inject \r into key values.
 if [ -f "$ROOT/.env" ]; then
   set -a
   # shellcheck disable=SC1090
-  . "$ROOT/.env"
+  . <(sed -e 's/\r$//' "$ROOT/.env")
   set +a
 fi
 
