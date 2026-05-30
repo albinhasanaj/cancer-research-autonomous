@@ -26,6 +26,8 @@ import numpy as np
 from pathlib import Path
 import csv
 
+from neoantigen_mhc import neoantigen_immunogenicity, mhcflurry_available
+
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -33,6 +35,7 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 # Neoantigen generation: each driver has probability p_neo of being immunogenic
 P_NEO_PER_DRIVER = 0.5  # ~50% of drivers generate strong neoantigens (McGranahan 2016)
+
 
 # Immune parameters
 PARAMS_BASELINE = dict(
@@ -294,7 +297,19 @@ if __name__ == "__main__":
     print("=" * 70)
     print("IMMUNE ESCAPE DYNAMICS UNDER CHECKPOINT THERAPY")
     print("=" * 70)
-    
+
+    # MHC-informed p_neo: ground the hand-waved 0.5 in real peptide-MHC
+    # presentation when MHCflurry is installed (falls back otherwise).
+    print("\n--- Neoantigen p_neo (MHCflurry-informed) ---")
+    demo_peptides = ["NLVPMVATV", "SIINFEKL", "GILGFVFTL", "KSEYMTSWFY", "LLFGYPVYV"]
+    demo_hla = ["A0201", "A0301", "B0702", "B4402", "C0201", "C0702"]
+    immuno = neoantigen_immunogenicity(demo_peptides, demo_hla)
+    print(f"  MHCflurry available: {mhcflurry_available()}")
+    print(f"  source={immuno['source']}  p_neo={immuno['p_neo']:.3f}  "
+          f"(literature default {P_NEO_PER_DRIVER}); "
+          f"presented {immuno['n_presented']}/{immuno['n']}, "
+          f"mean presentation_score={immuno['mean_score']:.3f}")
+
     # Show baseline parameters
     print("\n--- Baseline parameters ---")
     kill_on = immune_kill_rate(PARAMS_BASELINE, checkpoint_on=True)

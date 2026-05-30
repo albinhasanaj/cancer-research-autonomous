@@ -15,8 +15,10 @@ _REGISTRY: Dict[str, Dict[str, Any]] = {}
 def tool(name: str, description: str, schema: dict):
     """Register a function as an agent tool.
 
-    schema is a JSON-schema object describing the function input (the
-    properties/required object passed to the LLM provider).
+    schema is a JSON-schema object describing the function input. On the live
+    Copilot path tools are called directly from the shell, so the schema is used
+    for discovery/documentation (and by any future orchestration layer) rather
+    than being pushed into a model's tool list.
     """
     def decorator(func: Callable):
         _REGISTRY[name] = {

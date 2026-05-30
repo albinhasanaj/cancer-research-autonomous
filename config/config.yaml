@@ -1,26 +1,25 @@
-# Configuration for the autonomous research agent.
-
-provider:
-  # name: openai | xai  (this project's keys: OPENAI_API_KEY, XAI_API_KEY).
-  # xAI is OpenAI-SDK compatible: set base_url=https://api.x.ai/v1 + XAI_API_KEY.
-  # Used only by the api_backend/ fallback path; the primary brain is Copilot CLI.
-  name: openai
-  model: gpt-5.4
-  max_tokens: 4096
-  temperature: 1.0
-
-loop:
-  # Max tool-use steps within a single agent turn.
-  max_tool_steps: 25
-  # Sleep between Ralph passes (ralph.sh also honours the SLEEP env var).
-  sleep_seconds: 5
+# Informational settings for the autonomous research agent.
+#
+# NOTE: the live path is the Copilot CLI (run_loop.sh). Copilot reads AGENTS.md
+# and the skills, NOT this file. These values are kept as human-readable hints /
+# conventions; no production code parses this file. (The old api_backend raw-API
+# loop that consumed provider/loop settings has been removed — Copilot is the
+# only brain.)
 
 compute:
-  # Hints for the agent about available host compute. The agent can verify with
-  # run_shell("nvidia-smi") / run_shell("python -c 'import os; print(os.cpu_count())'").
+  # Hints about available host compute. The agent verifies at runtime with
+  # `nvidia-smi` and `python -c "import os; print(os.cpu_count())"`.
   gpu: auto
   cpu: auto
 
 memory:
+  # Conventions used by memory/ (vector store location + collection name).
   vector_store_path: memory/.chroma
   collection: research
+
+providers:
+  # LLM provider keys this project uses, when a tool/script needs to call out
+  # (see the external-apis skill). Keys live in .env, never here.
+  #   OPENAI_API_KEY  -> OpenAI   (base_url https://api.openai.com/v1)
+  #   XAI_API_KEY     -> xAI Grok (base_url https://api.x.ai/v1, OpenAI-SDK compatible)
+  allowed: [openai, xai]

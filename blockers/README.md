@@ -10,7 +10,7 @@ NOT blockers — those get logged in `experiments/_log.md` and the agent moves o
   token (e.g. `xai-key`, `private-portal-3`).
 - The agent marks the affected item in `research/open_questions.md` as
   `[BLOCKED:<id>]`, then continues on a different unblocked question.
-- The loop (`api_backend/ralph.sh`) notifies the human once per new blocker
+- The loop (`run_loop.sh`) notifies the human once per new blocker
   (non-blocking) and only **pauses** if `.all-blocked` exists at repo root —
   written by the agent when every remaining open question is blocked.
 - Resolve with `scripts/resolve_blocker.sh <id>` (moves the file to `resolved/`,

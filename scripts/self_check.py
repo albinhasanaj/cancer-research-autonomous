@@ -150,7 +150,7 @@ def probe_api_keys() -> None:
     # Required keys: PASS if present, WARN if absent (never FAIL — .env may not
     # be loaded when running standalone; run_loop.sh loads it before calling us).
     required = ["OPENAI_API_KEY", "XAI_API_KEY"]
-    optional = ["NCBI_API_KEY", "ANTHROPIC_API_KEY"]
+    optional = ["NCBI_API_KEY"]
 
     issues: list[str] = []
     any_warn = False

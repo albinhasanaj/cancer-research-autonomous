@@ -29,7 +29,9 @@ git worktree / branch** so writes never collide:
 
 ```
 git worktree add ../worker-<id> -b worker/<id>
-# worker runs `python -m api_backend.iteration` against its worktree
+# worker runs a fresh `copilot` iteration against its worktree, e.g.
+#   cd ../worker-<id> && copilot --prompt "Read AGENTS.md and do exactly one
+#   iteration of the protocol, then exit." --allow-all --no-color --disable-builtin-mcps
 ```
 
 A worker **claims** an item by checking its box in `open_questions.md` and

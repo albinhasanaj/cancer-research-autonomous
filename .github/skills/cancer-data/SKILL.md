@@ -1,6 +1,6 @@
 ---
 name: cancer-data
-description: How to test cancer hypotheses against REAL public data (cBioPortal tumour genomics, DepMap CRISPR dependencies, GDC/TCGA somatic mutations, GEO expression) instead of building toy models that re-derive known theory. Use whenever an open question could be checked against actual tumours or cell lines — which is most of them.
+description: How to test cancer hypotheses against REAL public data (cBioPortal tumour genomics, DepMap CRISPR dependencies, GDC/TCGA somatic mutations, GEO expression, Open Targets target–disease evidence & druggability, ClinicalTrials.gov human-trial status) instead of building toy models that re-derive known theory. Use whenever an open question could be checked against actual tumours, cell lines, the curated evidence base, or clinical trials — which is most of them.
 ---
 
 # Grounding research in real cancer data
@@ -55,6 +55,28 @@ python -c "from tools.geo_tool import geo_summary; print(geo_summary('GSE309617'
 ```
 Use for: finding expression datasets to download (the FTP/supplementary URL is in
 the summary), sizing a re-analysis.
+
+### Open Targets — is this target worth pursuing?
+```bash
+python -c "from tools.opentargets_tool import opentargets_associations; print(opentargets_associations('PARP1', 10))"
+python -c "from tools.opentargets_tool import opentargets_tractability; print(opentargets_tractability('PARP1'))"
+```
+Use for: target–disease association scores broken down by evidence type
+(genetic/somatic/drug/literature), druggability buckets, and known drugs — before
+committing compute to a target, check the curated evidence base.
+
+### ClinicalTrials.gov — has anyone tried this in humans?
+```bash
+python -c "from tools.clinicaltrials_tool import clinicaltrials_search; print(clinicaltrials_search('olaparib BRCA', 10))"
+python -c "from tools.clinicaltrials_tool import clinicaltrials_phase_summary; print(clinicaltrials_phase_summary('WRN MSI'))"
+```
+Use as a sharp ANSWERED/OPEN triage signal: if a drug/combination is already in
+late-phase trials, the question may be settled clinically — don't re-derive it.
+
+### Beyond these — ToolUniverse (1000+ tools) and the full catalog
+For UniProt, ChEMBL, FAERS, PubTator, IEDB/NetMHCpan and the long tail, use the
+`tooluniverse` skill (`tu_find`/`tu_spec`/`tu_call`). The complete map of reachable
+capabilities is the `capability-catalog` skill.
 
 ## Worked patterns
 

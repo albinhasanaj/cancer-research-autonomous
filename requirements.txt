@@ -15,3 +15,11 @@ lifelines
 gseapy
 pingouin
 matplotlib
+
+# --- Optional heavy research extras (install on demand, NOT auto-installed) ---
+# These power specific capabilities; keep them out of the core install to stay
+# lean. See .github/skills/capability-catalog/SKILL.md for when to use each.
+#   pip install tooluniverse   # 1000+ scientific tools (tools/tooluniverse_tool.py)
+#   pip install mhcflurry      # peptide-MHC binding (simulations/neoantigen_mhc.py)
+#                              # then: mhcflurry-downloads fetch models_class1_presentation
+#   pip install scanpy         # single-cell RNA-seq analysis

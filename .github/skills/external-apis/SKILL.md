@@ -46,10 +46,13 @@ model. Use strong models freely; just log notable usage.
   `https://eutils.ncbi.nlm.nih.gov/entrez/eutils`; `esearch` → `esummary`/`efetch`.
   Works with no key; set `NCBI_API_KEY` to raise the rate limit. Sleep ~0.34s
   between calls (3 req/s unauthenticated limit). Send a `User-Agent` header.
-- **LLM providers** (fallback `api_backend/llm_client.py`): native tool-use loop
-  for both Anthropic (`messages.create`, `tools=[{name,description,input_schema}]`,
-  `tool_use`/`tool_result` blocks) and OpenAI
-  (`chat.completions`, `tools=[{type:function,...}]`, `role:"tool"` results).
+- **PubTator Central** (`tools/pubtator_tool.py`): base
+  `https://www.ncbi.nlm.nih.gov/research/pubtator3-api`; `find_entity_id` (name →
+  concept id) and `publications/export/biocjson?pmids=` (pre-computed, normalized
+  gene/disease/chemical/variant annotations). No key, free, no inference cost.
+- **LLM providers**: this project calls **OpenAI** and **xAI Grok** only, both via
+  the OpenAI SDK shape (swap `base_url` + key + model). Keys from `.env`. See the
+  `openai-api` / `xai-grok-api` skills for the request shapes.
 
 ## Gotchas
 

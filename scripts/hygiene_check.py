@@ -23,7 +23,7 @@ TEXT_EXT = SOURCE_EXT | {".md", ".yaml", ".yml", ".txt"}
 
 SKIP_DIRS = {".git", "__pycache__", ".chroma", "data", ".github"}
 # Directories expected to carry an index/README map.
-MAJOR_DIRS = {"tools", "memory", "api_backend", "orchestration", "research", "scripts"}
+MAJOR_DIRS = {"tools", "memory", "orchestration", "research", "scripts"}
 INDEX_NAMES = {"readme.md", "index.md", "00_index.md"}
 
 

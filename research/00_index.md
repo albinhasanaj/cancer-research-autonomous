@@ -258,3 +258,30 @@ _(none yet — open hypotheses under review will be linked here)_
   budgeted OpenAI + xAI keys incl. research modes, buildable tools/workflows).
   See `AGENTS.md` ("Check the frontier", "Your capability surface") and the new
   `.github/skills/research-strategy/SKILL.md`.
+- 2026-05-31 — **External capability expansion (shell tools + skills, not MCP).**
+  Added data/evidence tools: `tools/opentargets_tool.py` (target–disease evidence &
+  tractability), `tools/clinicaltrials_tool.py` (human-trial triage), and
+  `tools/tooluniverse_tool.py` (`tu_find`/`tu_spec`/`tu_call` over ToolUniverse's
+  1000+ tools, optional install). Grounded the immune-escape sim's hand-waved
+  `p_neo` in real peptide-MHC presentation via `simulations/neoantigen_mhc.py`
+  (MHCflurry, with a no-dep literature fallback). Discovery layer: new
+  `.github/skills/capability-catalog/SKILL.md` (7-tier map of reachable resources)
+  and `.github/skills/tooluniverse/SKILL.md`; `cancer-data` skill extended with the
+  new sources. Rationale: production runs `copilot --disable-builtin-mcps`, so tools
+  are invoked via native shell (`python -c "from tools.X import f"`) — zero
+  per-iteration schema cost, no MCP. Optional heavy deps marked in `requirements.txt`.
+- 2026-05-30 — **Retired the `api_backend/` raw-API fallback (Copilot is the only
+  brain).** Removed `llm_client.py`, `iteration.py`, `prompts.py`,
+  `primitive_tools_*.py`, `ralph.sh` — nothing on the live path imported them; they
+  were the sole consumer of `@tool` JSON schemas, so the "schema bloat" concern is
+  gone for good. `config/config.yaml` slimmed to informational hints (Copilot reads
+  `AGENTS.md`, not that file); `README.md` / `orchestration/README.md` repointed to
+  the `run_loop.sh` (copilot) path. The `@tool` registry stays — its schemas now
+  serve discovery/docs (and future orchestration), not a model tool-list.
+- 2026-05-30 — **Operationalized more of the capability catalog.** New
+  `tools/pubtator_tool.py` (`pubtator_entity`, `pubtator_annotate`) turns PubMed
+  abstracts into normalized, graph-linkable concept IDs + relations (free PubTator3
+  API, no deps) — the "abstracts → facts" upgrade. New skills:
+  `simulation-engines` (tugHall/SISTEM/CancerSim/BooLEVARD — validated sims to use
+  before hand-rolling) and `knowledge-graph` (PrimeKG download + cached pandas
+  multi-hop traversal). Catalog + `tools/README.md` + `external-apis` skill updated.
