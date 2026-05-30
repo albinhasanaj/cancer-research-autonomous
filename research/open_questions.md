@@ -225,12 +225,20 @@ Re-derivations are warm-ups, not the goal.
   insufficient). Unifies PARPi resistance + immune escape under one evolutionary
   framework. Script: `simulations/immune_escape_checkpoint.py`.
 
-- [ ] **20. Immune escape + adaptive scheduling: does competition help here?**
+- [x] **20. Immune escape + adaptive scheduling: does competition help here?**
   Unlike PARPi MRD (item 18: N << K, competition negligible), immune-escaped
   clones may have higher fitness cost (genomic instability from HLA-LOH).
   Test whether intermittent checkpoint dosing (drug holidays to let immune-
   sensitive cells compete) provides benefit in the immune escape model. Connects
   items 18 + 19.
+  → Done 2026-05-30, see [[2026-05-30-adaptive-immune-checkpoint-scheduling]].
+  Triage: EXTENDABLE (Gatenby 2018 PMID 30278037 proposes "natural adaptive
+  therapy" for immunotherapy; delta = quantitative LV model in immune escape
+  parameterisation + contrast with PARPi). **Honest positive:** adaptive
+  scheduling delays escape by +17–38% at N₀/K ≥ 0.3, in stark contrast to
+  PARPi MRD (item 18). Competition IS the mechanism: benefit emerges only when
+  N ~ K AND r_S_off > r_E. Predictive criterion: benefit ∝ (N₀/K) ×
+  (r_S_off − r_E)/r_E. Script: `simulations/adaptive_immune_checkpoint.py`.
 
 - [ ] **21. Neoantigen dynamics during clonal evolution: does immunoediting
   shape the driver accumulation rate?** Extend the multistage model so immune
