@@ -154,11 +154,25 @@ Re-derivations are warm-ups, not the goal.
   expansion alone does NOT explain the driver-count discrepancy. Script:
   `simulations/multistage_fitness_expansion.py`.
 
-- [ ] **15. Non-ordered hit accumulation model.** Relax the Armitage-Doll
+- [x] **15. Non-ordered hit accumulation model.** Relax the Armitage-Doll
   assumption that hits must occur in strict order. Allow any-order acquisition
   (combinatorial paths). Compare waiting times and age-incidence exponents to the
   ordered model. This is a candidate explanation for the driver-count discrepancy
   that item 14 ruled out for clonal expansion.
+  → Done 2026-05-30, see [[2026-05-30-unordered-hit-accumulation]]. Triage:
+  EXTENDABLE (Beerenwinkel 2007 settles the theory; delta = computational
+  verification). **Honest negative:** unordered model is ~H_k faster but exponent
+  is INVARIANT to ordering (both ≈ k-1 in early regime). Non-ordered accumulation
+  does NOT explain the driver-count discrepancy. Two candidates now ruled out
+  (clonal expansion + ordering); heterogeneous per-gene rates remains top
+  candidate. Script: `simulations/multistage_unordered_hits.py`.
+
+- [ ] **17. Heterogeneous per-gene mutation rates and effective exponent.** Model
+  k required hits where each gene has a DIFFERENT mutation rate (e.g. drawn from
+  a lognormal). When rates vary, only the slowest steps are rate-limiting; the
+  effective exponent should reflect the number of HARD steps, not total k. This
+  is the leading remaining candidate for the driver-count discrepancy (items 14
+  and 15 ruled out clonal expansion and ordering respectively).
 
 - [ ] **16. Multi-mechanism PARPi resistance (reversion + efflux + shielding).**
   Extend the single-mechanism resistance model (item 13) to include 3 parallel

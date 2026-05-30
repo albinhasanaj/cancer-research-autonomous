@@ -99,6 +99,14 @@ This is the map of the research vault. Every iteration updates it.
   architecture, heterogeneous rates, non-ordered accumulation). Script:
   `simulations/multistage_fitness_expansion.py`.
 
+- [[2026-05-30-unordered-hit-accumulation]] — Non-ordered (any-order) hit
+  accumulation model (item 15). Relaxes strict ordering: T ~ Hypoexponential
+  (coupon-collector). **Honest negative:** unordered model is H_k-times faster
+  (2.45× for k=6) but age-incidence exponent is INVARIANT (still k−1 in the
+  asymptotic regime). Second candidate ruled out for driver-count discrepancy
+  (after clonal expansion, item 14). Heterogeneous per-gene rates is the next
+  candidate. Script: `simulations/multistage_unordered_hits.py`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -161,6 +169,12 @@ _(none yet — open hypotheses under review will be linked here)_
   inferences from age-incidence fitting. Other mechanisms needed (tissue
   architecture, heterogeneous rates, non-ordered accumulation). Opens new
   questions about which mechanisms DO explain the discrepancy.
+
+- **Driver-count discrepancy thread.** Questions 14 → 15 → 17. Why do sequenced
+  tumours have more drivers than age-incidence fitting implies? **Q14 closed:**
+  clonal expansion doesn't explain it (s≈0.004 too weak). **Q15 closed:**
+  non-ordered accumulation doesn't explain it (exponent invariant to ordering).
+  **Q17 open:** heterogeneous per-gene rates — leading remaining candidate.
 
 ## System changes
 
