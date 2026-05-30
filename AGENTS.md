@@ -27,9 +27,15 @@ comes from disk:
    `open_questions.md`. Just one.
 3. **Check the frontier (triage before you compute).** Before building or
    simulating anything, find out whether the question is *already answered*. Use
-   your **native web search and web fetch** and `pubmed_search`/`pubmed_fetch`
-   (and, when warranted, a provider research mode — see *Your capability
-   surface*). Classify the item:
+   **`pubmed_search`/`pubmed_fetch`** (real NCBI API — always use this for
+   biomedical papers; it returns actual PMIDs and abstracts) and **native web
+   fetch on real URLs** (e.g. `https://pubmed.ncbi.nlm.nih.gov/?term=...`,
+   `https://api.semanticscholar.org/graph/v1/paper/search?query=...`,
+   `https://www.biorxiv.org/search/`). ⚠️ **Do NOT use the GitHub MCP
+   `web_search` tool** — it returns AI-generated summaries, not real search
+   results. Triage based on MCP web_search is triage based on your own memory,
+   not the actual frontier. For broad synthesis, use a provider research mode
+   (see *Your capability surface*). Classify the item:
    - **ANSWERED** — the literature already settles it with consensus. Record the
      answer with citations and move on. Do **not** re-simulate to rediscover it.
    - **EXTENDABLE** — partially answered; there is a cheap, specific delta you can
@@ -127,8 +133,10 @@ over the vault), and `write_note` (structured Obsidian note-writing).
 You are not limited to running a local simulation. Before defaulting to one,
 remember what you can actually reach for, and pick the *best* instrument:
 
-- **Native (already yours, never build these):** web search, web fetch, file
-  read/write/edit, shell, and code execution. Use them directly.
+- **Native (already yours, never build these):** web fetch on real URLs, file
+  read/write/edit, shell, and code execution. Use them directly. ⚠️ **Avoid
+  the GitHub MCP `web_search` tool** — it looks like web search but returns
+  AI-generated text. Fetch real URLs instead.
 - **Structured biomedical literature:** `pubmed_search` / `pubmed_fetch`.
 - **Budgeted provider APIs (keys in `.env`, pre-approved to spend — just log
   notable usage):** `OPENAI_API_KEY` (~$2000) and `XAI_API_KEY` (~$2500). You may
