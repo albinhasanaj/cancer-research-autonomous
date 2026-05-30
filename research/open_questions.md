@@ -62,7 +62,23 @@ without colliding. To claim an item, check its box and tag it with your worker i
   peak at 71–91y with 19–42% decline, matching SEER (PMID 21953606). Competing
   mortality negligible. Multistage thread now complete for the basic framework.
 
-- [ ] **5. Open a new thread: driver-pathway / synthetic-lethal analysis.** Per
+- [x] **5. Open a new thread: driver-pathway / synthetic-lethal analysis.** Per
   [[SCOPE]] tractable target 4 — explore known driver pathways and candidate
   synthetic-lethal pairs from public knowledge bases (ground every pair in a
   PMID). Independent of the multistage thread, so a parallel worker can claim it.
+  → Done 2026-05-30, see [[2026-05-30_synthetic_lethality_survey]]. Surveyed 5
+  established/emerging SL pairs (BRCA–PARP, MTAP–PRMT5, MSI-H–WRN,
+  TP53/ATM–ATR/CHK1/WEE1, RB1–Aurora/PLK1) + KRAS combinations; grounded in 8
+  PMIDs. Identified 3 computational extensions for follow-up.
+
+## Open candidate questions (synthetic-lethal thread)
+
+- [ ] **7. Build a bipartite driver-loss ↔ druggable-target network** from the
+  SL pairs surveyed in item 5 plus TCGA/COSMIC driver-mutation frequencies.
+  Compute degree/centrality to identify high-coverage therapeutic targets.
+  Purely computational (graph + public data).
+
+- [ ] **8. Boolean network SL simulation.** Construct a small Boolean network
+  of a canonical pathway (e.g. DDR or cell-cycle) and simulate single vs
+  double knockouts to identify synthetic-lethal node pairs from topology alone.
+  Compare to the known SL pairs from item 5.

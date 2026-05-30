@@ -45,6 +45,10 @@ This is the map of the research vault. Every iteration updates it.
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
   multistage model and its age-incidence prediction `I(t) ∝ t^(k−1)`, with
   modern status from 5 fetched PMIDs. Sets up open-questions items 2 & 3.
+- [[2026-05-30_synthetic_lethality_survey]] — survey of synthetic lethality
+  principles and 5 key SL pairs (BRCA–PARP, MTAP–PRMT5, MSI-H–WRN,
+  TP53/ATM–DDR, RB1–mitotic kinases) + KRAS combinations. Grounded in 8 PMIDs.
+  Opens the synthetic-lethal computational thread (items 7, 8).
 
 ## Active hypotheses
 
@@ -62,6 +66,10 @@ _(none yet — open hypotheses under review will be linked here)_
   peak-and-decline (peak 71–91y, decline 19–42%); competing mortality negligible.
   Thread complete for the basic multistage framework. Next open: Q5
   (synthetic-lethal) opens an independent thread.
+- **Synthetic-lethal thread.** Question 5 (literature survey of SL principles
+  and key pairs) → Question 7 (bipartite driver↔target network + centrality) →
+  Question 8 (Boolean network SL simulation). Q5 closed: 5 SL pairs surveyed,
+  grounded in 8 PMIDs. Q7 and Q8 open.
 
 ## System changes
 
