@@ -15,6 +15,13 @@ This is the map of the research vault. Every iteration updates it.
   `N = 200_000`). Empirical moments match `Erlang(k, μ)` to 3 decimals.
   Script: `simulations/multistage_khit_montecarlo.py`; output:
   `simulations/output/khit_{times,summary}.csv`.
+- [[2026-05-30_age_incidence_power_law]] — age-incidence check (item 3). The
+  `t^(k−1)` law is the `μt→0` asymptotic, **not** exact on the simulated window:
+  the fitted effective exponent is below `k−1` (deficit grows with `k`), yet the
+  MC reproduces the exact Erlang hazard to ~2% (Q2) and the closed-form local
+  slope `s_k(x)=(k−1)−x·A_{k−1}/A_k → k−1` as `x→0` confirms the asymptotic.
+  Scripts: `simulations/age_incidence_power_law.py`,
+  `simulations/erlang_hazard_local_slope.py`.
 
 ## Literature notes
 
@@ -30,7 +37,11 @@ _(none yet — open hypotheses under review will be linked here)_
 
 - **Multistage carcinogenesis thread.** Question 1 (literature, this iter) →
   Question 2 (Monte Carlo of `k`-hit time-to-malignancy) → Question 3
-  (compare simulated age-incidence to `t^(k−1)` power law).
+  (compare simulated age-incidence to `t^(k−1)` power law). **All three closed.**
+  Thread conclusion: the multistage age-incidence power law is asymptotic
+  (`μt→0`); finite cohorts show a lower effective exponent. Next directions are
+  open (e.g. add the old-age plateau / cell-pool scaling, or move to a new
+  thread such as synthetic-lethal analysis).
 
 ## System changes
 

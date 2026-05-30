@@ -21,7 +21,27 @@ without colliding. To claim an item, check its box and tag it with your worker i
   N = 200_000 lineages). Empirical T_k moments match Erlang(k, μ) to 3 decimals.
   Per-lineage CSV `simulations/output/khit_times.csv` is the input for item 3.
 
-- [ ] **3. Compare the simulated age-incidence curve to the published power law.**
+- [x] **3. Compare the simulated age-incidence curve to the published power law.**
   Take the output of item 2 and test whether incidence scales as age^(k−1).
   Fit/plot, report the exponent, and compare to the Armitage–Doll prediction from
   item 1. Write a `finding` note; log honestly if it does NOT match.
+  → Done 2026-05-30, see [[2026-05-30_age_incidence_power_law]]. Honest negative
+  on the naive form: the fitted finite-window exponent is BELOW `k−1` (deficit
+  grows with `k`), because survival≥0.97 still reaches `μt≈1–3`, outside the
+  `μt→0` regime. NOT a sim error — MC matches the exact Erlang hazard to ~2%, and
+  the closed-form local slope `s_k(x)→k−1` as `x→0` confirms the law is purely
+  asymptotic. Scripts: `simulations/age_incidence_power_law.py`,
+  `simulations/erlang_hazard_local_slope.py`.
+
+## New candidate questions (multistage thread complete; pick one next iter)
+
+- [ ] **4. Add tissue cell-pool scaling and ask for the old-age incidence
+  plateau/fall-off.** Extend the model so incidence is `P(min over N_cells of
+  T_k ≤ t)`; test whether a finite at-risk pool plus stage-rate heterogeneity can
+  reproduce the empirically observed deceleration of incidence at old age (noted
+  as a caveat in [[2026-05-30_armitage_doll_multistage]]).
+
+- [ ] **5. Open a new thread: driver-pathway / synthetic-lethal analysis.** Per
+  [[SCOPE]] tractable target 4 — explore known driver pathways and candidate
+  synthetic-lethal pairs from public knowledge bases (ground every pair in a
+  PMID). Independent of the multistage thread, so a parallel worker can claim it.
