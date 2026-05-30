@@ -15,6 +15,15 @@ data/*
 
 # Scratch exec
 scratch/_exec.py
+scratch/_smoke.py
+
+# Stale pre-refactor duplicates that reappear in this shared environment.
+# The canonical raw-API loop lives in api_backend/. Never re-track these.
+/AGENT.md
+/agents/
+/agentic_loops/
+/tools/file_tools.py
+/tools/exec_tools.py
 
 # Loop runtime state (human-in-the-loop escalation)
 .notified

@@ -5,11 +5,11 @@ and not part of the research loop.
 
 ## Contents
 
-- **`check_hygiene.py`** — advisory check for the hygiene rules in `AGENTS.md`:
+- **`hygiene_check.py`** — advisory check for the hygiene rules in `AGENTS.md`:
   flags source files over the line cap, directories with too many sibling files,
   and major directories missing an index/README map.
-  Run: `python scripts/check_hygiene.py` (report only) or
-  `python scripts/check_hygiene.py --strict` (exit 1 on any violation).
+  Run: `python scripts/hygiene_check.py` (report only) or
+  `python scripts/hygiene_check.py --strict` (exit 1 on any violation).
 - **`notify.sh "<message>"`** — alert the human about an escalation. Always prints
   a console banner and appends to `NEEDS_HUMAN.log`; also POSTs to `$NOTIFY_WEBHOOK`
   (Discord/Slack) and fires a desktop notification if available. Never fails the loop.

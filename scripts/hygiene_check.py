@@ -7,8 +7,8 @@ Flags violations of the hygiene rules in AGENTS.md:
   - major directories missing an index/README map
 
 Usage:
-  python scripts/check_hygiene.py            # report only, exit 0
-  python scripts/check_hygiene.py --strict   # exit 1 if any violation
+  python scripts/hygiene_check.py            # report only, exit 0
+  python scripts/hygiene_check.py --strict   # exit 1 if any violation
 
 Counts only text/source files; skips .git, caches, the vector store, and data.
 """

@@ -1,9 +1,11 @@
 # Configuration for the autonomous research agent.
 
 provider:
-  # name: anthropic | openai
-  name: anthropic
-  model: claude-opus-4-8
+  # name: openai | xai  (this project's keys: OPENAI_API_KEY, XAI_API_KEY).
+  # xAI is OpenAI-SDK compatible: set base_url=https://api.x.ai/v1 + XAI_API_KEY.
+  # Used only by the api_backend/ fallback path; the primary brain is Copilot CLI.
+  name: openai
+  model: gpt-5.4
   max_tokens: 4096
   temperature: 1.0
 
