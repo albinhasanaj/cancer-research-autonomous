@@ -1,0 +1,24 @@
+# Configuration for the autonomous research agent.
+
+provider:
+  # name: anthropic | openai
+  name: anthropic
+  model: claude-opus-4-8
+  max_tokens: 4096
+  temperature: 1.0
+
+loop:
+  # Max tool-use steps within a single agent turn.
+  max_tool_steps: 25
+  # Sleep between Ralph passes (ralph.sh also honours the SLEEP env var).
+  sleep_seconds: 5
+
+compute:
+  # Hints for the agent about available host compute. The agent can verify with
+  # run_shell("nvidia-smi") / run_shell("python -c 'import os; print(os.cpu_count())'").
+  gpu: auto
+  cpu: auto
+
+memory:
+  vector_store_path: memory/.chroma
+  collection: research

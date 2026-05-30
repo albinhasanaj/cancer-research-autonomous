@@ -1,0 +1,17 @@
+# Secrets / environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Vector store (rebuilt from research/ via reindex())
+memory/.chroma/
+
+# Bulk data artifacts (keep the folder via .gitkeep)
+data/*
+!data/.gitkeep
+
+# Scratch exec
+scratch/_exec.py
