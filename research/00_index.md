@@ -107,6 +107,14 @@ This is the map of the research vault. Every iteration updates it.
   (after clonal expansion, item 14). Heterogeneous per-gene rates is the next
   candidate. Script: `simulations/multistage_unordered_hits.py`.
 
+- [[2026-05-30-heterogeneous-rates-exponent]] — Per-gene heterogeneous mutation
+  rates and effective exponent (item 17). k hits with lognormal per-gene rates
+  (σ ∈ 0–2). **Honest negative:** asymptotic exponent is INVARIANT to per-gene
+  rates (always k-1); finite-window contribution is ~0.15–0.2 (marginal). Third
+  candidate ruled out for driver-count discrepancy. The "discrepancy" itself may
+  be a finite-window artifact (homogeneous k=6 already gives fitted exponent ≈1.7
+  in the 45–80yr window). Script: `simulations/multistage_heterogeneous_rates.py`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -174,7 +182,12 @@ _(none yet — open hypotheses under review will be linked here)_
   tumours have more drivers than age-incidence fitting implies? **Q14 closed:**
   clonal expansion doesn't explain it (s≈0.004 too weak). **Q15 closed:**
   non-ordered accumulation doesn't explain it (exponent invariant to ordering).
-  **Q17 open:** heterogeneous per-gene rates — leading remaining candidate.
+  **Q17 closed (honest negative):** heterogeneous per-gene rates don't explain it
+  either (asymptotic exponent invariant; marginal finite-window contribution).
+  **Resolution:** the "discrepancy" is largely a **finite-window artifact** —
+  homogeneous k=6 already gives fitted exponent ≈ 1.7 in the 45–80yr window
+  because μt ≈ 3–6 is far from the t→0 asymptotic. The classical method of
+  inferring k from the exponent is only valid at μt→0. Thread at resolution.
 
 ## System changes
 

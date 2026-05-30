@@ -167,12 +167,21 @@ Re-derivations are warm-ups, not the goal.
   (clonal expansion + ordering); heterogeneous per-gene rates remains top
   candidate. Script: `simulations/multistage_unordered_hits.py`.
 
-- [ ] **17. Heterogeneous per-gene mutation rates and effective exponent.** Model
+- [x] **17. Heterogeneous per-gene mutation rates and effective exponent.** Model
   k required hits where each gene has a DIFFERENT mutation rate (e.g. drawn from
   a lognormal). When rates vary, only the slowest steps are rate-limiting; the
   effective exponent should reflect the number of HARD steps, not total k. This
   is the leading remaining candidate for the driver-count discrepancy (items 14
   and 15 ruled out clonal expansion and ordering respectively).
+  → Done 2026-05-30, see [[2026-05-30-heterogeneous-rates-exponent]]. Triage:
+  EXTENDABLE (Frank 2007, Luebeck & Moolgavkar 2002 establish principle; delta
+  = computational verification of per-gene rate variation). **Honest negative:**
+  asymptotic exponent is INVARIANT to per-gene rates (always k-1 regardless of
+  spread); finite-window contribution is only ~0.15–0.2 additional depression.
+  Third candidate ruled out. Resolution: the "discrepancy" is largely a
+  finite-window artifact — homogeneous k=6 already gives fitted exponent ≈1.7
+  in the 45–80yr epidemiological window. Script:
+  `simulations/multistage_heterogeneous_rates.py`.
 
 - [ ] **16. Multi-mechanism PARPi resistance (reversion + efflux + shielding).**
   Extend the single-mechanism resistance model (item 13) to include 3 parallel
