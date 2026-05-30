@@ -208,11 +208,36 @@ Re-derivations are warm-ups, not the goal.
   N << K; competition negligible; reversion fitness cost too low. Continuous dosing
   near-optimal in this regime. Script: `simulations/adaptive_therapy_parp.py`.
 
-- [ ] **19. Immune escape dynamics in the clonal evolution framework.** Model
+- [x] **19. Immune escape dynamics in the clonal evolution framework.** Model
   tumour–immune coevolution where immune editing applies selection against
   immunogenic clones. How does neoantigen load (correlated with driver count)
   interact with immune checkpoint therapy? Connects multistage + resistance
   threads to immunotherapy. Purely computational.
+  → Done 2026-05-30, see [[2026-05-30-immune-escape-checkpoint-dynamics]].
+  Triage: EXTENDABLE (Lakatos 2020 PMID 32929288 + 2025 PMID 40025156 establish
+  framework; delta = coupling k-hit driver count → neoantigen burden → checkpoint
+  response + unified escape framework). **Key findings:** (1) phase transition at
+  u_eff·N0·(s_R/|s_S|) ~ 1 — same structure as PARPi resistance; N0_crit ≈ 5e5
+  under checkpoint therapy; (2) higher k_drivers → more elimination (k=10: 14.7%
+  elim vs k=2: 0%) — explains TMB-response correlation; (3) clonal neoantigen
+  fraction modulates response (f_clonal=1.0: 4.7% elim vs f_clonal=0.2: 0%);
+  (4) without checkpoint, escape 100% regardless (immune pressure alone
+  insufficient). Unifies PARPi resistance + immune escape under one evolutionary
+  framework. Script: `simulations/immune_escape_checkpoint.py`.
+
+- [ ] **20. Immune escape + adaptive scheduling: does competition help here?**
+  Unlike PARPi MRD (item 18: N << K, competition negligible), immune-escaped
+  clones may have higher fitness cost (genomic instability from HLA-LOH).
+  Test whether intermittent checkpoint dosing (drug holidays to let immune-
+  sensitive cells compete) provides benefit in the immune escape model. Connects
+  items 18 + 19.
+
+- [ ] **21. Neoantigen dynamics during clonal evolution: does immunoediting
+  shape the driver accumulation rate?** Extend the multistage model so immune
+  selection removes immunogenic drivers (negative selection on neoantigens per
+  Lakatos 2020). How does this change the effective mutation rate and time-to-
+  malignancy? Could explain why some cancers accumulate fewer drivers than
+  expected.
 
 - [x] **11. MSI-stratified co-deletion test or DepMap functional validation.**
   Re-run the BRCA+WRN counter-selection test restricted to MSS (microsatellite-
