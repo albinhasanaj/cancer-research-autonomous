@@ -1,0 +1,7 @@
+label,N0,u,net_R_growth,t_analytic_months,median_sim_months,q25_months,q75_months,frac_resistant_10yr
+MRD_N0=1e5_u=1e-8,100000.0,1e-08,0.05,inf,nan,nan,nan,0.0
+MRD_N0=1e6_u=1e-8,1000000.0,1e-08,0.05,inf,9.5,9.2,10.0,0.008
+MRD_N0=1e7_u=1e-8,10000000.0,1e-08,0.05,inf,9.9,9.3,10.2,0.114
+MRD_N0=1e6_u=1e-9,1000000.0,1e-09,0.05,inf,9.6,9.6,9.6,0.002
+MRD_N0=1e6_slow_R,1000000.0,1e-08,0.020000000000000004,inf,nan,nan,nan,0.0
+MRD_N0=1e6_very_slow_R,1000000.0,1e-08,0.009999999999999995,inf,nan,nan,nan,0.0

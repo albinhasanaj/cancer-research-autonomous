@@ -129,11 +129,16 @@ Re-derivations are warm-ups, not the goal.
 
 ## Open candidate questions (new threads)
 
-- [ ] **13. Evolutionary dynamics of resistance to SL-based therapy.** Model a
+- [x] **13. Evolutionary dynamics of resistance to SL-based therapy.** Model a
   population of tumour cells under PARP-inhibitor selection where BRCA-reversion
   mutations restore HR. Stochastic birth-death with mutation; predict
   time-to-resistance as f(tumour size, mutation rate, drug kill rate). Connects
   the multistage (clonal evolution) and SL threads. Purely computational.
+  → Done 2026-05-30, see [[2026-05-30-parp-resistance-dynamics]]. Sharp phase
+  transition at u·N0~1: bulk tumour (N0=1e9) → resistance inevitable in ~9mo;
+  MRD (N0=1e6) → <1% develop resistance (explains long clinical PFS).
+  "Paradox of effective killing": stronger drug delays resistance in MRD.
+  Script: `simulations/parp_resistance_dynamics.py`.
 
 - [ ] **14. Multi-hit model with driver-specific fitness effects.** Extend the
   Armitage-Doll framework so each hit confers a selective advantage (not just

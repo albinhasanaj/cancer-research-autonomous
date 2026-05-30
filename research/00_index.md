@@ -80,6 +80,15 @@ This is the map of the research vault. Every iteration updates it.
   captures qualitative SL but not quantitative drug sensitivity. Script:
   `simulations/stochastic_boolean_sl.py`.
 
+- [[2026-05-30-parp-resistance-dynamics]] — Evolutionary dynamics of PARPi
+  resistance via BRCA reversion (item 13). Iwasa/Michor/Nowak birth-death
+  framework parameterised for PARPi maintenance. **Key finding:** sharp phase
+  transition at u·N0 ~ 1 separates "resistance inevitable" (bulk tumour) from
+  "drug wins" (MRD). Clinical PFS explained by post-surgery minimal residual
+  disease putting patients below the transition. "Paradox of effective killing":
+  stronger drug → less mutation supply → delayed resistance in MRD. Script:
+  `simulations/parp_resistance_dynamics.py`.
+
 ## Literature notes
 
 - [[2026-05-30_armitage_doll_multistage]] — restatement of the Armitage–Doll
@@ -127,6 +136,13 @@ _(none yet — open hypotheses under review will be linked here)_
   but ρ=0.27 vs DepMap — topology does not predict quantitative drug
   sensitivity. Boolean SL thread at useful ceiling. Next open: new threads
   needed (data-driven or quantitative modelling).
+
+- **Resistance dynamics thread.** Question 13 (PARPi resistance via BRCA
+  reversion). Connects the multistage clonal-evolution framework (birth-death
+  process) with the SL thread (BRCA-PARP pair). **Q13 closed:** phase transition
+  at u·N0~1; MRD explains long PFS; effective killing paradox identified.
+  Next open: Q14 (fitness-effect multistage); could also extend to
+  multi-mechanism resistance or immune escape dynamics.
 
 ## System changes
 
