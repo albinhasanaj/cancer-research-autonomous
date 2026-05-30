@@ -65,6 +65,13 @@ This is the map of the research vault. Every iteration updates it.
   CONFOUNDED by MSI co-occurrence; MSS-only analysis drops to borderline
   (p=0.053, r=0.15). DepMap does not robustly confirm direct BRCA+WRN SL
   independent of MSI. Script: `simulations/depmap_wrn_brca_validation.py`.
+- [[2026-05-30-depmap-ddr-context-screen]] — Pan-DepMap DDR target screen
+  (item 12). 1208 lines, Chronos, 4 targets × 4 driver contexts (16 pairs).
+  **Honest mixed:** BRCA1→PARP1 confirmed (d=0.51, p=0.004); TP53→CHEK1
+  confirmed (d=0.18, p=0.008); ATM→ATR/CHK1/WEE1 ALL non-significant (n=36,
+  underpowered); surprise BRCA1→ATR (d=0.47, p=0.013) not predicted by network.
+  Bipartite network partially validated. Script:
+  `simulations/depmap_ddr_context_screen.py`.
 
 ## Literature notes
 
@@ -104,8 +111,11 @@ _(none yet — open hypotheses under review will be linked here)_
   stratification needed. **Q11 closed (mixed/negative):** DepMap functional
   validation — strong WRN dependency signal in BRCA-mut lines (p=2e-6) is
   confounded by MSI; MSS-only = borderline (p=0.053). BRCA+WRN prediction
-  likely artifact of simplified Boolean topology. Next open: Q10 (stochastic
-  extension).
+  likely artifact of simplified Boolean topology. **Q12 closed (mixed):**
+  pan-DepMap DDR screen — BRCA1→PARP1 (d=0.51) and TP53→CHEK1 (d=0.18)
+  confirmed; ATM context all ns (underpowered n=36); surprise BRCA1→ATR
+  (d=0.47) not predicted. Network partially validated; ATM coverage claim
+  overestimated. Next open: Q10 (stochastic extension).
 
 ## System changes
 

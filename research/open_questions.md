@@ -132,10 +132,16 @@ Re-derivations are warm-ups, not the goal.
   of MSI. Boolean model's prediction likely a topology artifact.
   Script: `simulations/depmap_wrn_brca_validation.py`.
 
-- [ ] **12. Pan-DepMap SL discovery: which gene pairs show strongest
+- [x] **12. Pan-DepMap SL discovery: which gene pairs show strongest
   context-dependent co-dependency beyond known MSI→WRN?** Use the DepMap API
   to systematically screen DDR gene dependencies (ATR, CHK1, WEE1, PARP1)
   stratified by driver mutation context (TP53-mut vs WT, ATM-loss vs WT).
   Extends the bipartite network (item 7) with functional DepMap evidence.
   Tests whether the network's top-ranked targets (ATR/CHK1/WEE1 in TP53/ATM
   context) are confirmed by CRISPR screens.
+  → Done 2026-05-30, see [[2026-05-30-depmap-ddr-context-screen]]. Honest
+  mixed: BRCA1→PARP1 confirmed (d=0.51, p=0.004), TP53→CHEK1 confirmed
+  (d=0.18, p=0.008), but ATM→ATR/CHK1/WEE1 all ns (underpowered n=36).
+  Surprise: BRCA1→ATR (d=0.47, p=0.013) not predicted by network. Network
+  partially validated; ATM 57% coverage claim overestimated.
+  Script: `simulations/depmap_ddr_context_screen.py`.
