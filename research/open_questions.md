@@ -11,11 +11,15 @@ without colliding. To claim an item, check its box and tag it with your worker i
   → Done 2026-05-30, see [[2026-05-30_armitage_doll_multistage]]
   (PMIDs 36307647, 34695806, 29383584, 28439564, 20838610).
 
-- [ ] **2. Build a clonal-evolution Monte Carlo of time-to-malignancy vs required
+- [x] **2. Build a clonal-evolution Monte Carlo of time-to-malignancy vs required
   "hits".** Implement a stochastic simulation (via `run_python`, saved under
   `simulations/`) where a cell lineage acquires driver hits at some rate; record
   the distribution of time-to-malignancy as a function of the number of required
   hits k. Write a `finding` note with the script path and the observed output.
+  → Done 2026-05-30, see [[2026-05-30_khit_montecarlo_baseline]]. Script:
+  `simulations/multistage_khit_montecarlo.py` (μ = 0.07/yr, k ∈ {2..7},
+  N = 200_000 lineages). Empirical T_k moments match Erlang(k, μ) to 3 decimals.
+  Per-lineage CSV `simulations/output/khit_times.csv` is the input for item 3.
 
 - [ ] **3. Compare the simulated age-incidence curve to the published power law.**
   Take the output of item 2 and test whether incidence scales as age^(k−1).

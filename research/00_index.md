@@ -10,7 +10,11 @@ This is the map of the research vault. Every iteration updates it.
 
 ## Findings
 
-_(none yet — KEEP-verdict findings will be linked here)_
+- [[2026-05-30_khit_montecarlo_baseline]] — Armitage–Doll `k`-ordered-hit
+  Monte Carlo of time-to-malignancy (`k = 2..7`, `μ = 0.07/yr`,
+  `N = 200_000`). Empirical moments match `Erlang(k, μ)` to 3 decimals.
+  Script: `simulations/multistage_khit_montecarlo.py`; output:
+  `simulations/output/khit_{times,summary}.csv`.
 
 ## Literature notes
 
