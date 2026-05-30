@@ -15,3 +15,8 @@ data/*
 
 # Scratch exec
 scratch/_exec.py
+
+# Loop runtime state (human-in-the-loop escalation)
+.notified
+.all-blocked
+NEEDS_HUMAN.log

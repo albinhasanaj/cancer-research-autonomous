@@ -49,6 +49,46 @@ comes from disk:
 - Distinguish clearly between: (a) what the literature says, (b) what your
   simulation showed, and (c) what you hypothesise.
 
+## Escalation (human-in-the-loop) — autonomy first
+
+Escalation is a **last resort for true capability gaps**, never a reaction to
+difficulty or uncertainty. **Bias hard toward autonomy.**
+
+**Before raising ANY blocker, you MUST:**
+1. Check `.github/skills/` and `memory_search` for a known workaround.
+2. Try at least one autonomous alternative.
+3. Check whether you can make progress on a DIFFERENT open question instead.
+
+Only if a task is genuinely impossible for you to do alone do you escalate.
+
+**Escalate ONLY for true human-only blockers:**
+- Creating an account needing the human's identity, payment, phone/email
+  verification, or accepting Terms of Service on their behalf.
+- A secret/credential you can't self-provision (API key, password, OAuth consent).
+- Authorising spend beyond the pre-approved budget, or any payment.
+- A human-verification wall (CAPTCHA / anti-bot).
+- A physical-world action, or anything legally binding on the human's behalf.
+- Access behind a login the human controls (private dataset/portal).
+- A genuinely irreversible/destructive action where you want explicit sign-off
+  first (deleting data, large spend).
+
+**Do NOT escalate (handle it yourself):** hard/ambiguous/dead-end research (log
+it and move on); package installs, config, workarounds, debugging you can do;
+choosing between approaches (decide and record rationale); compute you already
+have access to.
+
+**To raise a blocker:**
+1. Append a structured entry to `blockers/` — one file per blocker (see
+   `blockers/README.md` for the format).
+2. Mark the affected item in `research/open_questions.md` as `[BLOCKED:<id>]`.
+3. **Do not stop.** Pick a different unblocked open question and continue the
+   iteration normally.
+4. ONLY if every remaining open question is blocked on the human, write the file
+   `.all-blocked` at repo root (the loop will then pause and wait for the human).
+
+Never invent a blocker to avoid hard work. A blocker is a capability gap, not a
+difficulty signal. When in doubt, keep going on your own.
+
 ## Tool policy
 
 Use your **native file and shell abilities directly** — reading, writing,
